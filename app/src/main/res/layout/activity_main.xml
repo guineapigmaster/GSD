@@ -10,11 +10,11 @@
         android:layout_weight="3">
 
         <TextView
-            android:id="@+id/welcome"
+            android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Welcome"
+            android:text="@string/welcomeText"
             android:textSize="30sp" />
     </LinearLayout>
 
@@ -25,18 +25,18 @@
         android:layout_weight="1">
 
         <Button
-            android:id="@+id/startNewActivity"
+            android:id="@+id/startNewProjectButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Start new activity" />'
+            android:text="@string/startNewProject" />'
 
         <Button
-            android:id="@+id/continueOldActivity"
+            android:id="@+id/resumeOldProjectButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Continue old activity" />'
+            android:text="@string/resumeProject" />'
 
     </LinearLayout>
 
