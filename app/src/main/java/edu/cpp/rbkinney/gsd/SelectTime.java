@@ -1,17 +1,23 @@
 package edu.cpp.rbkinney.gsd;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class SelectTime extends ActionBarActivity {
     private static final boolean DEBUG = true;
     private static final String TAG = "SelectTime";
+    private static Toast toast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +28,8 @@ public class SelectTime extends ActionBarActivity {
         Button topRightButton = (Button) findViewById(R.id.topRightButton);
         Button bottomLeftButton = (Button) findViewById(R.id.bottomLeftButton);
         Button bottomRightButton = (Button) findViewById(R.id.bottomRightButton);
-
+        ImageButton backButton = (ImageButton) findViewById(R.id.backButton);
+        startNewProjectText.setText("How much time do you want to spend?");
         topLeftButton.setText("5 minutes");
         topRightButton.setText("15 minutes");
         bottomLeftButton.setText("30 minutes");
@@ -31,9 +38,10 @@ public class SelectTime extends ActionBarActivity {
         topLeftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DEBUG)
-                {
-
+                if (DEBUG) {
+                    Log.i(TAG, "topLeftButton clicked");
+                    toast = Toast.makeText(getApplicationContext(), "topLeftButton clicked!", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
         });
@@ -41,21 +49,45 @@ public class SelectTime extends ActionBarActivity {
         topRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (DEBUG) {
+                    Log.i(TAG, "topRightButton clicked");
+                    toast = Toast.makeText(getApplicationContext(), "topRightButton clicked!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
 
         bottomLeftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (DEBUG) {
+                    Log.i(TAG, "bottomLeftButton clicked");
+                    toast = Toast.makeText(getApplicationContext(), "bottomLeftButton clicked!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
 
         bottomRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (DEBUG) {
+                    Log.i(TAG, "bottomRightButton clicked");
+                    toast = Toast.makeText(getApplicationContext(), "bottomRightButton clicked!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            }
+        });
 
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (DEBUG) {
+                    Log.i(TAG, "backButton clicked");
+                    toast = Toast.makeText(getApplicationContext(), "backButton clicked!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                changeActivity();
             }
         });
     }
@@ -81,5 +113,16 @@ public class SelectTime extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void changeActivity()
+    {
+        Intent intent = new Intent(this, MainActivity.class);
+        if (DEBUG) {
+            Log.i(TAG, "changeActivity() called " + this.toString());
+            toast = Toast.makeText(getApplicationContext(), "changeActivity() called!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        startActivity(intent);
     }
 }
