@@ -22,7 +22,7 @@ public class SelectTime extends ActionBarActivity {
         Button topRightButton = (Button) findViewById(R.id.topRightButton);
         Button bottomLeftButton = (Button) findViewById(R.id.bottomLeftButton);
         Button bottomRightButton = (Button) findViewById(R.id.bottomRightButton);
-
+        startNewProjectText.setText("How much time do you want to spend?");
         topLeftButton.setText("5 minutes");
         topRightButton.setText("15 minutes");
         bottomLeftButton.setText("30 minutes");
