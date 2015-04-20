@@ -14,7 +14,7 @@
         android:id="@+id/startNewProjectText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/startNewProjectText"/>
+        android:text="@string/startNewProjectText" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -26,19 +26,22 @@
             android:id="@+id/topButtonLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
             <Button
                 android:id="@+id/topLeftButton"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/topLeftButton" />
+                android:text="@string/topLeftButton"
+                />
 
             <Button
                 android:id="@+id/topRightButton"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/topRightButton" />
+                android:text="@string/topRightButton"
+                />
 
 
         </LinearLayout>
@@ -47,21 +50,29 @@
             android:id="@+id/bottomButtonLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
             <Button
                 android:id="@+id/bottomLeftButton"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/bottomLeftButton" />
+                android:text="@string/bottomLeftButton"
+                />
 
             <Button
                 android:id="@+id/bottomRightButton"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/bottomRightButton" />
-
-
+                android:text="@string/bottomRightButton"
+                />
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+            android:layout_gravity="center|bottom"/>
     </LinearLayout>
 </LinearLayout>
