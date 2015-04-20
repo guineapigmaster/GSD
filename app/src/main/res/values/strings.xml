@@ -13,4 +13,12 @@
     <string name="bottomLeftButton" />
     <string name="bottomRightButton" />
     <string name="startNewProjectText" />
+    <string name="customTimeText" />
+    <string name="title_activity_start_new_activity_category">StartNewActivityCategory</string>
+    <string name="selectCategoryText" />
+    <string name="cookingButton" />
+    <string name="diyButton" />
+    <string name="electronicsButton" />
+    <string name="randomButton" />
+    <string name="goButton" />
 </resources>

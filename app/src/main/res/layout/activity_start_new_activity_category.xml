@@ -8,15 +8,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.cpp.rbkinney.gsd.SelectTime">
+    tools:context="edu.cpp.rbkinney.gsd.SelectCategory">
 
     <TextView
-        android:id="@+id/startNewProjectText"
+        android:id="@+id/selectCategoryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:gravity="center"
-        android:text="@string/startNewProjectText"
+        android:text="@string/selectCategoryText"
         android:textSize="32dp" />
 
     <LinearLayout
@@ -27,7 +27,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/topButtonLayout"
+            android:id="@+id/firstRowLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -35,22 +35,22 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/topLeftButton"
+                android:id="@+id/cookingButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/topLeftButton" />
+                android:text="@string/cookingButton" />
 
             <Button
-                android:id="@+id/topRightButton"
+                android:id="@+id/electronicsButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/topRightButton" />
+                android:text="@string/electronicsButton" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/bottomButtonLayout"
+            android:id="@+id/secondRowLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -58,48 +58,26 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/bottomLeftButton"
+                android:id="@+id/diyButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/bottomLeftButton" />
+                android:text="@string/diyButton" />
 
             <Button
-                android:id="@+id/bottomRightButton"
+                android:id="@+id/randomButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/bottomRightButton" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/customTimeText"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:hint="...or enter your own time! (in minutes)"
-                android:inputType="number"
-                android:text="@string/customTimeText" />
-
-            <Button
-                android:id="@+id/goButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/goButton" />
+                android:text="@string/randomButton" />
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/backToMainButton"
+            android:id="@+id/backToTimeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha" />
     </LinearLayout>
-
 
 </LinearLayout>

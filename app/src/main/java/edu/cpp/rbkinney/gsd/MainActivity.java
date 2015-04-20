@@ -11,21 +11,27 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 
 public class MainActivity extends ActionBarActivity {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final String TAG = "MainActivity";
-
     private static Toast toast;
+
+    @InjectView(R.id.welcomeText)
+    TextView welcomeText;
+    @InjectView(R.id.startNewProjectButton)
+    Button startNew;
+    @InjectView(R.id.resumeOldProjectButton)
+    Button resumeOld;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        TextView welcomeText = (TextView) findViewById(R.id.welcomeText);
-        Button startNew = (Button) findViewById(R.id.startNewProjectButton);
-        Button resumeOld = (Button) findViewById(R.id.resumeOldProjectButton);
+        ButterKnife.inject(this);
 
         welcomeText.setText("welcome");
         startNew.setText("start");
@@ -79,8 +85,7 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void changeActivity()
-    {
+    public void changeActivity() {
         Intent intent = new Intent(this, SelectTime.class);
         if (DEBUG) {
             Log.i(TAG, "changeActivity() called " + this.toString());
