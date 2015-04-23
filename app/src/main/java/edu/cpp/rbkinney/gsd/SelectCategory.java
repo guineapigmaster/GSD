@@ -14,9 +14,10 @@ import android.widget.Toast;
 
 
 public class SelectCategory extends ActionBarActivity {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     private static final String TAG = "SelectCategory";
     private static Toast toast;
+    private int customTimeMinutes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,12 @@ public class SelectCategory extends ActionBarActivity {
         Button diyButton = (Button) findViewById(R.id.diyButton);
         Button randomButton = (Button) findViewById(R.id.randomButton);
         ImageButton backToTimeButton = (ImageButton) findViewById(R.id.backToTimeButton);
+        customTimeMinutes = SelectTime.getCustomTimeMinutes();
+        if(DEBUG)
+        {
+            toast = Toast.makeText(getApplicationContext(), "custom time is: " + customTimeMinutes, Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
         selectCategoryText.setText("What would you like to learn?");
         cookingButton.setText("Cooking");

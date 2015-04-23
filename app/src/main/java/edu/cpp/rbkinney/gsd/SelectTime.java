@@ -12,28 +12,33 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 
 public class SelectTime extends ActionBarActivity {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "SelectTime";
+    private static final boolean DEBUG = true;
+    private static final java.lang.String TAG = "SelectTime";
     private static Toast toast;
+
+    private static int customTimeMinutes;
+    @InjectView(R.id.customTimeText)
+    TextView customTimeText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_new_activity_time);
-
+        ButterKnife.inject(this);
         TextView startNewProjectText = (TextView) findViewById(R.id.startNewProjectText);
         Button topLeftButton = (Button) findViewById(R.id.topLeftButton);
         Button topRightButton = (Button) findViewById(R.id.topRightButton);
         Button bottomLeftButton = (Button) findViewById(R.id.bottomLeftButton);
         Button bottomRightButton = (Button) findViewById(R.id.bottomRightButton);
 
-//        EditText customTimeText = (EditText) findViewById(R.id.customTimeText);
         Button goButton = (Button) findViewById(R.id.goButton);
 
         ImageButton backToMainButton = (ImageButton) findViewById(R.id.backToMainButton);
-
 
         startNewProjectText.setText("How much time do you want to spend?");
         topLeftButton.setText("5 minutes");
@@ -50,6 +55,7 @@ public class SelectTime extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "topLeftButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+                customTimeMinutes = 5;
                 openCategory();
             }
         });
@@ -62,6 +68,7 @@ public class SelectTime extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "topRightButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+                customTimeMinutes = 15;
                 openCategory();
             }
         });
@@ -74,6 +81,7 @@ public class SelectTime extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "bottomLeftButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+                customTimeMinutes = 30;
                 openCategory();
             }
         });
@@ -86,10 +94,30 @@ public class SelectTime extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "bottomRightButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+                customTimeMinutes = 60;
                 openCategory();
             }
         });
-
+        goButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!(customTimeText.getText().toString().equals(""))) {
+                    if (DEBUG) {
+                        Log.i(TAG, "customTimeText recognized, is: " + customTimeText.getText().toString());
+                        toast = Toast.makeText(getApplicationContext(), customTimeText.getText().toString(), Toast.LENGTH_SHORT);
+                        toast.show();
+                        customTimeMinutes = Integer.parseInt(customTimeText.getText().toString());
+                        openCategory();
+                    }
+                } else {
+                    if (DEBUG) {
+                        Log.i(TAG, "customTimeText is no more");
+                        toast = Toast.makeText(getApplicationContext(), "no value of custom time", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                }
+            }
+        });
         backToMainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,4 +173,9 @@ public class SelectTime extends ActionBarActivity {
         }
         startActivity(intent);
     }
+
+    public static int getCustomTimeMinutes() {
+        return customTimeMinutes;
+    }
+
 }
