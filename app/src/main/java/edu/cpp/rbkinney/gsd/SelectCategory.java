@@ -14,9 +14,11 @@ import android.widget.Toast;
 
 
 public class SelectCategory extends ActionBarActivity {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final String TAG = "SelectCategory";
     private static Toast toast;
+
+    private static String activityCategory;
     private int customTimeMinutes;
 
     @Override
@@ -31,8 +33,7 @@ public class SelectCategory extends ActionBarActivity {
         Button randomButton = (Button) findViewById(R.id.randomButton);
         ImageButton backToTimeButton = (ImageButton) findViewById(R.id.backToTimeButton);
         customTimeMinutes = SelectTime.getCustomTimeMinutes();
-        if(DEBUG)
-        {
+        if (DEBUG) {
             toast = Toast.makeText(getApplicationContext(), "custom time is: " + customTimeMinutes, Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -51,6 +52,8 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "cookingButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+                activityCategory = "http://www.instructables.com/tag/type-id/category-food/";
+                openNewLesson();
             }
         });
 
@@ -62,6 +65,8 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "electronicsButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+                activityCategory = "http://www.instructables.com/tag/type-id/category-technology/";
+                openNewLesson();
             }
         });
 
@@ -73,6 +78,8 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "diyButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+                activityCategory = "http://www.instructables.com/tag/type-id/category-workshop/";
+                openNewLesson();
             }
         });
 
@@ -84,6 +91,8 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "randomButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+                activityCategory = "http://www.instructables.com/";
+                openNewLesson();
             }
         });
 
@@ -131,5 +140,19 @@ public class SelectCategory extends ActionBarActivity {
             toast.show();
         }
         startActivity(intent);
+    }
+    public void openNewLesson() {
+        Intent intent = new Intent(this, SuggestNewLesson.class);
+        if (DEBUG) {
+            Log.i(TAG, "openNewLesson() called " + this.toString());
+            toast = Toast.makeText(getApplicationContext(), "openNewLesson() called!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        startActivity(intent);
+    }
+
+
+    public static String getActivityCategory() {
+        return activityCategory;
     }
 }

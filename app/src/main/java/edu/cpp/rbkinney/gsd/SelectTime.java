@@ -17,7 +17,7 @@ import butterknife.InjectView;
 
 
 public class SelectTime extends ActionBarActivity {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final java.lang.String TAG = "SelectTime";
     private static Toast toast;
 

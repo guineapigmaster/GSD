@@ -21,4 +21,5 @@
     <string name="electronicsButton" />
     <string name="randomButton" />
     <string name="goButton" />
+    <string name="title_activity_suggest_new_lesson">SuggestNewLesson</string>
 </resources>
