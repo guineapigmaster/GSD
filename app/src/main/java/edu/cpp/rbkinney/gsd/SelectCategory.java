@@ -21,6 +21,10 @@ public class SelectCategory extends ActionBarActivity {
     private static String activityCategory;
     private int customTimeMinutes;
 
+    public static String getActivityCategory() {
+        return activityCategory;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +57,7 @@ public class SelectCategory extends ActionBarActivity {
                     toast.show();
                 }
                 activityCategory = "http://www.instructables.com/tag/type-id/category-food/";
-                openNewLesson();
+                changeActivityTo(NewLesson.class);
             }
         });
 
@@ -66,7 +70,7 @@ public class SelectCategory extends ActionBarActivity {
                     toast.show();
                 }
                 activityCategory = "http://www.instructables.com/tag/type-id/category-technology/";
-                openNewLesson();
+                changeActivityTo(NewLesson.class);
             }
         });
 
@@ -79,7 +83,7 @@ public class SelectCategory extends ActionBarActivity {
                     toast.show();
                 }
                 activityCategory = "http://www.instructables.com/tag/type-id/category-workshop/";
-                openNewLesson();
+                changeActivityTo(NewLesson.class);
             }
         });
 
@@ -92,7 +96,7 @@ public class SelectCategory extends ActionBarActivity {
                     toast.show();
                 }
                 activityCategory = "http://www.instructables.com/";
-                openNewLesson();
+                changeActivityTo(NewLesson.class);
             }
         });
 
@@ -104,11 +108,10 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "backToTimeButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                goBackToTime();
+                changeActivityTo(SelectTime.class);
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -132,27 +135,13 @@ public class SelectCategory extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goBackToTime() {
-        Intent intent = new Intent(this, SelectTime.class);
+    public void changeActivityTo(Class toOpen) {
+        Intent intent = new Intent(this, toOpen);
         if (DEBUG) {
-            Log.i(TAG, "backToTime() called " + this.toString());
-            toast = Toast.makeText(getApplicationContext(), "backToTime() called!", Toast.LENGTH_SHORT);
+            Log.i(TAG, "changeActivityTo() called " + this.toString());
+            toast = Toast.makeText(getApplicationContext(), "changeActivity() called!", Toast.LENGTH_SHORT);
             toast.show();
         }
         startActivity(intent);
-    }
-    public void openNewLesson() {
-        Intent intent = new Intent(this, SuggestNewLesson.class);
-        if (DEBUG) {
-            Log.i(TAG, "openNewLesson() called " + this.toString());
-            toast = Toast.makeText(getApplicationContext(), "openNewLesson() called!", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-        startActivity(intent);
-    }
-
-
-    public static String getActivityCategory() {
-        return activityCategory;
     }
 }

@@ -3,8 +3,9 @@
     package="edu.cpp.rbkinney.gsd">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <application
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,8 +26,11 @@
             android:name=".SelectCategory"
             android:label="@string/title_activity_start_new_activity_category" />
         <activity
-            android:name=".SuggestNewLesson"
-            android:label="@string/title_activity_suggest_new_lesson"></activity>
+            android:name=".NewLesson"
+            android:label="@string/title_activity_suggest_new_lesson" />
+        <activity
+            android:name=".ResumeActivityList"
+            android:label="@string/title_activity_resume_activity_list"></activity>
     </application>
 
 </manifest>

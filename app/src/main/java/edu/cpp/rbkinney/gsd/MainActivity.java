@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.Parse;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -33,6 +35,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "ONNUGT6zp06IvEBiuQ3EkEl2AbFkWI9ljE2tpHe4", "Ex2K1plHhrcbmejPGoiQpgAEvgRghPNXjn5rDRCe");
+
         welcomeText.setText("welcome");
         startNew.setText("start");
         resumeOld.setText("resume");
@@ -45,7 +50,7 @@ public class MainActivity extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "startNew clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                changeActivity();
+                changeActivityTo(SelectTime.class);
             }
         });
 
@@ -57,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "resumeOld clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                changeActivity();
+                changeActivityTo(ResumeActivityList.class);
             }
         });
     }
@@ -85,10 +90,10 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void changeActivity() {
-        Intent intent = new Intent(this, SelectTime.class);
+    public void changeActivityTo(Class toOpen) {
+        Intent intent = new Intent(this, toOpen);
         if (DEBUG) {
-            Log.i(TAG, "changeActivity() called " + this.toString());
+            Log.i(TAG, "changeActivityTo() called " + this.toString());
             toast = Toast.makeText(getApplicationContext(), "changeActivity() called!", Toast.LENGTH_SHORT);
             toast.show();
         }

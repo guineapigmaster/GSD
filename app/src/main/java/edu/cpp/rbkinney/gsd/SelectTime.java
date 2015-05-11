@@ -25,6 +25,10 @@ public class SelectTime extends ActionBarActivity {
     @InjectView(R.id.customTimeText)
     TextView customTimeText;
 
+    public static int getCustomTimeMinutes() {
+        return customTimeMinutes;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +60,7 @@ public class SelectTime extends ActionBarActivity {
                     toast.show();
                 }
                 customTimeMinutes = 5;
-                openCategory();
+                changeActivityTo(SelectCategory.class);
             }
         });
 
@@ -69,7 +73,7 @@ public class SelectTime extends ActionBarActivity {
                     toast.show();
                 }
                 customTimeMinutes = 15;
-                openCategory();
+                changeActivityTo(SelectCategory.class);
             }
         });
 
@@ -82,7 +86,7 @@ public class SelectTime extends ActionBarActivity {
                     toast.show();
                 }
                 customTimeMinutes = 30;
-                openCategory();
+                changeActivityTo(SelectCategory.class);
             }
         });
 
@@ -95,7 +99,7 @@ public class SelectTime extends ActionBarActivity {
                     toast.show();
                 }
                 customTimeMinutes = 60;
-                openCategory();
+                changeActivityTo(SelectCategory.class);
             }
         });
         goButton.setOnClickListener(new View.OnClickListener() {
@@ -106,8 +110,7 @@ public class SelectTime extends ActionBarActivity {
                         Log.i(TAG, "customTimeText recognized, is: " + customTimeText.getText().toString());
                         toast = Toast.makeText(getApplicationContext(), customTimeText.getText().toString(), Toast.LENGTH_SHORT);
                         toast.show();
-                        customTimeMinutes = Integer.parseInt(customTimeText.getText().toString());
-                        openCategory();
+
                     }
                 } else {
                     if (DEBUG) {
@@ -116,6 +119,8 @@ public class SelectTime extends ActionBarActivity {
                         toast.show();
                     }
                 }
+                customTimeMinutes = Integer.parseInt(customTimeText.getText().toString());
+                changeActivityTo(SelectCategory.class);
             }
         });
         backToMainButton.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +135,6 @@ public class SelectTime extends ActionBarActivity {
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -164,18 +168,14 @@ public class SelectTime extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void openCategory() {
-        Intent intent = new Intent(this, SelectCategory.class);
+    public void changeActivityTo(Class toOpen) {
+        Intent intent = new Intent(this, toOpen);
         if (DEBUG) {
-            Log.i(TAG, "openCategory() called " + this.toString());
-            toast = Toast.makeText(getApplicationContext(), "openCategory() called!", Toast.LENGTH_SHORT);
+            Log.i(TAG, "changeActivityTo() called " + this.toString());
+            toast = Toast.makeText(getApplicationContext(), "changeActivity() called!", Toast.LENGTH_SHORT);
             toast.show();
         }
         startActivity(intent);
-    }
-
-    public static int getCustomTimeMinutes() {
-        return customTimeMinutes;
     }
 
 }
