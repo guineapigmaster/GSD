@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "resumeOld clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                changeActivityTo(ResumeActivityList.class);
+                changeActivityTo(ResumeActivityListFragment.class);
             }
         });
     }

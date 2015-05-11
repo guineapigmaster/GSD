@@ -30,7 +30,7 @@
             android:label="@string/title_activity_suggest_new_lesson" />
         <activity
             android:name=".ResumeActivityList"
-            android:label="@string/title_activity_resume_activity_list"></activity>
+            android:label="@string/title_activity_resume_activity_list" />
     </application>
 
 </manifest>

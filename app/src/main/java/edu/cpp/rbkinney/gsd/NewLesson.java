@@ -20,6 +20,7 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
@@ -27,7 +28,7 @@ public class NewLesson extends ActionBarActivity {
     private static final boolean DEBUG = true;
     private static final java.lang.String TAG = "SuggestNewLesson";
     private static Toast toast;
-    @InjectView(R.id.titleText)
+    @InjectView(R.id.titleTextId)
     TextView titleText;
     private String activityCategory;
     private String title;
@@ -36,7 +37,7 @@ public class NewLesson extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_new_lesson);
-
+        ButterKnife.inject(this);
         InputStream is = getResources().openRawResource(R.raw.test);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
