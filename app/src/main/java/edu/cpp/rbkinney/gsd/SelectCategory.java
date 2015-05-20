@@ -12,17 +12,34 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.Random;
+
 
 public class SelectCategory extends ActionBarActivity {
     private static final boolean DEBUG = false;
     private static final String TAG = "SelectCategory";
     private static Toast toast;
 
-    private static String activityCategory;
-    private int customTimeMinutes;
+    private static JSONObject activityCategoryObject;
+    private static String jsonFileName;
+    private static int customTimeMinutes;
 
-    public static String getActivityCategory() {
-        return activityCategory;
+    public static JSONObject getActivityCategoryObject() {
+        return activityCategoryObject;
+    }
+
+    public static String getJsonFileName() {
+        return jsonFileName;
     }
 
     @Override
@@ -56,7 +73,7 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "cookingButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                activityCategory = "http://www.instructables.com/tag/type-id/category-food/";
+                JSONprocesser("cooking1");
                 changeActivityTo(NewLesson.class);
             }
         });
@@ -69,7 +86,7 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "electronicsButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                activityCategory = "http://www.instructables.com/tag/type-id/category-technology/";
+                JSONprocesser("electronics1");
                 changeActivityTo(NewLesson.class);
             }
         });
@@ -82,7 +99,7 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "diyButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                activityCategory = "http://www.instructables.com/tag/type-id/category-workshop/";
+                JSONprocesser("diy1");
                 changeActivityTo(NewLesson.class);
             }
         });
@@ -95,7 +112,8 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "randomButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                activityCategory = "http://www.instructables.com/";
+                String[] random = {"cooking1", "diy1", "electronics1"};
+                JSONprocesser(random[new Random().nextInt(random.length)]);
                 changeActivityTo(NewLesson.class);
             }
         });
@@ -143,5 +161,38 @@ public class SelectCategory extends ActionBarActivity {
             toast.show();
         }
         startActivity(intent);
+    }
+
+    public void JSONprocesser(String activityCategory) {
+        InputStream is = this.getResources().openRawResource(getResources().getIdentifier(activityCategory, "raw", getPackageName()));
+        //start JSON reader
+//        InputStream is = getResources().openRawResource(lol.getIntExtra());
+        Writer writer = new StringWriter();
+        char[] buffer = new char[1024];
+        try {
+            Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            int n;
+            while ((n = reader.read(buffer)) != -1) {
+                writer.write(buffer, 0, n);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        String jsonString = writer.toString();
+        Log.i(TAG, jsonString);
+        try {
+            activityCategoryObject = new JSONObject(jsonString);
+            String tester = activityCategoryObject.getString("category");
+            Log.i(TAG, "tester is " + tester);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        //end JSON reader
     }
 }

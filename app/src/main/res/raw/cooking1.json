@@ -1,0 +1,70 @@
+﻿{
+  "category": "cooking",
+  "title": "How to Cook",
+  "materialsRequired": [
+    "Soldering iron",
+    "Solder",
+    "Flux",
+    "Soldering iron tips",
+    "Soldering iron holder and sponge",
+    "Wire cutters",
+    "Wire stripper",
+    "Needle nose pliers",
+    "Helping hand",
+    "Fan",
+    "Safety Goggles",
+    "Materials you want to join together"
+  ],
+  "instructions": [
+    {
+      "step1": {
+        "title": "Prepare a work space",
+        "text": "Lay down a mat or piece of cardboard that will catch any solder that you drip."
+      },
+      "step2": {
+        "title": "Warm your soldering iron",
+        "text": "If your soldering iron is electric, you’ll need to allow it to warm up on its stand. If your soldering iron runs on butane, as Master Appliance soldering irons do, fill it with gas holding the unit firmly with the refill nozzle pointed upwards and press down. Gas will overflow from nozzle when tank is full."
+      },
+      "step3": {
+        "title": "Secure the items you are soldering",
+        "text": "It helps to have an extra hand while you are soldering. We suggest using a vise or frame to secure your work."
+      },
+      "step4": {
+        "title": "Clean your soldering iron",
+        "text": "Because soldering irons get so hot, they oxidize and become dirty quickly. They key to reliable connections is clean components so make sure that your soldering tip and parts you are joining are clean. To accomplish this, pass the tip of your soldering iron on a wet sponge until it shines."
+      },
+      "step5": {
+        "title": "Apply flux",
+        "text": "In soldering it often becomes necessary to use materials called fluxes to help remove oxides and keep them absent while you solder. Flux needs to melt at a temperature lower than solder so that it can do its job prior to the soldering action. There are different methods to apply flux. The method you choose will be dependent on the items you are soldering."
+      },
+      "step6": {
+        "title": "Tin your soldering iron",
+        "text": "If you want to know everything there is to know about how to use a soldering iron, you’ll need to know how to tin. Tinning is the process of coating a soldering tip with a thin coat of solder. Melt a thin layer of solder on your iron’s tip. This aids in heat transfer between the tip and the component you are soldering, and also gives the solder a base from which to flow from.  This process may need to be repeated as you solder. You will only touch the tip of the soldering iron to the solder when you tin. Do not touch the tip of the iron to the solder while you are actually soldering."
+      },
+      "step7": {
+        "title": "Start soldering",
+        "text": "Hold the soldering iron like you would a pen in the hand you write with and the solder in the other."
+      },
+      "step8": {
+        "title": "Place the tip of the soldering iron tip",
+        "text": "The tip needs to touch both the wire lead and the surface so they achieve the same temperature."
+      },
+      "step9": {
+        "title": "Feed solder onto the joint after you have heated the area for two to three seconds",
+        "text": "Touch the solder to the side of the connection opposite the soldering iron. Then, let the solder flow only until the connection is covered."
+      },
+      "step10": {
+        "title": "Remove the solder first. Then, remove the iron",
+        "text": "Make sure the joint remains stationary while it cools."
+      },
+      "step11": {
+        "title": "Evaluate",
+        "text": "A smooth, shiny and volcano shaped joint is what you are looking for. If this isn’t what you see, you’ll need to reheat and feed in more solder."
+      },
+      "step12": {
+        "title": "Remove leftover flux with a commercial flux cleaner.",
+        "text": "done!"
+      }
+    }
+  ]
+}

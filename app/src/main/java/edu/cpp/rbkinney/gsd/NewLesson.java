@@ -1,5 +1,7 @@
 package edu.cpp.rbkinney.gsd;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -8,17 +10,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -28,58 +22,38 @@ public class NewLesson extends ActionBarActivity {
     private static final boolean DEBUG = true;
     private static final java.lang.String TAG = "SuggestNewLesson";
     private static Toast toast;
+    private static JSONObject activityCategoryObject;
+
     @InjectView(R.id.titleTextId)
     TextView titleText;
-    private String activityCategory;
+    @InjectView(R.id.materialsTextId)
+    TextView materialsText;
     private String title;
+    private String materialString;
+    private String jsonFileName;
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_new_lesson);
         ButterKnife.inject(this);
-        InputStream is = getResources().openRawResource(R.raw.test);
-        Writer writer = new StringWriter();
-        char[] buffer = new char[1024];
+        activityCategoryObject = SelectCategory.getActivityCategoryObject();
+        jsonFileName = SelectCategory.getJsonFileName();
         try {
-            Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-            int n;
-            while ((n = reader.read(buffer)) != -1) {
-                writer.write(buffer, 0, n);
+            title = activityCategoryObject.getString("title");
+            titleText.setText(title);
+            JSONArray jsonArray = new JSONArray(activityCategoryObject.getString("materialsRequired"));
+            materialString = "List of Materials Needed:\n";
+            for (int i = 0; i < jsonArray.length(); i++) {
+                materialString += i + 1 + ". " + jsonArray.getString(i) + "\n";
             }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                is.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        String jsonString = writer.toString();
-        Log.i(TAG, jsonString);
-        JSONObject lol = null;
-        try {
-            lol = new JSONObject(jsonString);
-            String tester = lol.getString("title");
-            Log.i(TAG, "tester is " + tester);
-            titleText.setText(tester);
+
+            Log.i(TAG, materialString);
+            materialsText.setText(materialString);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
-//        titleText.setText(title);
-        //        WebView newLessonWebView = (WebView) findViewById(R.id.categoryWebView);
-//        activityCategory = SelectCategory.getActivityCategory().toString();
-//        if (DEBUG) {
-//            Log.i(TAG, "activityCategory shown: " + activityCategory);
-//            toast = Toast.makeText(getApplicationContext(), "activityCateogory shown: " + activityCategory, Toast.LENGTH_SHORT);
-//            toast.show();
-//        }
-//        newLessonWebView.loadUrl(activityCategory);
 
     }
 

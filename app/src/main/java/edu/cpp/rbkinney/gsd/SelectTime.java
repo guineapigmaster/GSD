@@ -131,7 +131,7 @@ public class SelectTime extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "backToMainButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                goBackToMain();
+                changeActivityTo(MainActivity.class);
             }
         });
     }
@@ -158,15 +158,6 @@ public class SelectTime extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goBackToMain() {
-        Intent intent = new Intent(this, MainActivity.class);
-        if (DEBUG) {
-            Log.i(TAG, "goBackToMain() called " + this.toString());
-            toast = Toast.makeText(getApplicationContext(), "goBackToMain() called!", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-        startActivity(intent);
-    }
 
     public void changeActivityTo(Class toOpen) {
         Intent intent = new Intent(this, toOpen);
