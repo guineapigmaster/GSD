@@ -7,8 +7,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,40 +21,102 @@ import butterknife.InjectView;
 
 public class NewLesson extends ActionBarActivity {
     private static final boolean DEBUG = true;
-    private static final java.lang.String TAG = "SuggestNewLesson";
-    private static Toast toast;
+    private static final String TAG = "SuggestNewLesson";
     private static JSONObject activityCategoryObject;
+    private static JSONArray infoArray;
+    private static JSONArray instructionArray;
+    private static int counter = 0;
 
     @InjectView(R.id.titleTextId)
     TextView titleText;
-    @InjectView(R.id.materialsTextId)
-    TextView materialsText;
-    private String title;
-    private String materialString;
-    private String jsonFileName;
+    @InjectView(R.id.infoTextId)
+    TextView infoText;
+    @InjectView(R.id.nextStepButtonId)
+    Button nextStepButton;
+    @InjectView(R.id.saveStepButtonId)
+    Button saveStepButton;
+    @InjectView(R.id.prevStepButtonId)
+    Button prevStepButton;
 
-    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private String title;
+    private String infoString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_new_lesson);
         ButterKnife.inject(this);
-        activityCategoryObject = SelectCategory.getActivityCategoryObject();
-        jsonFileName = SelectCategory.getJsonFileName();
-        try {
-            title = activityCategoryObject.getString("title");
-            titleText.setText(title);
-            JSONArray jsonArray = new JSONArray(activityCategoryObject.getString("materialsRequired"));
-            materialString = "List of Materials Needed:\n";
-            for (int i = 0; i < jsonArray.length(); i++) {
-                materialString += i + 1 + ". " + jsonArray.getString(i) + "\n";
-            }
 
-            Log.i(TAG, materialString);
-            materialsText.setText(materialString);
+        activityCategoryObject = SelectCategory.getActivityCategoryObject();
+
+        try {
+            prevStepButton.setText("Previous Step");
+            saveStepButton.setText("Save Progress");
+            nextStepButton.setText("Next Step");
+
+            instructionArray = new JSONArray(activityCategoryObject.getString("instructions"));
+            displayMaterials();
+            if (DEBUG) {
+                Log.i(TAG, infoString);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        nextStepButton.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onClick(View v) {
+                try {
+
+                    if (counter < 12) {
+                        counter++;
+                        JSONObject stepListObject = (JSONObject) instructionArray.get(0);
+                        JSONObject stepObject = stepListObject.getJSONObject("step" + counter);
+                        String nextStepTitle = stepObject.getString("title");
+                        String nextStepInfo = stepObject.getString("text");
+                        if (DEBUG) {
+                            Log.i(TAG, nextStepTitle.toString());
+                            Log.i(TAG, nextStepInfo);
+                            Log.i(TAG, Integer.toString(counter));
+                        }
+                        titleText.setText(nextStepTitle);
+                        infoText.setText(nextStepInfo);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        prevStepButton.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onClick(View v) {
+                try {
+                    counter--;
+                    if (counter > 0) {
+
+                        JSONObject stepListObject = (JSONObject) instructionArray.get(0);
+                        JSONObject stepObject = stepListObject.getJSONObject("step" + counter);
+                        String prevStepTitle = stepObject.getString("title");
+                        String prevStepInfo = stepObject.getString("text");
+                        if (DEBUG) {
+                            Log.i(TAG, prevStepTitle.toString());
+                            Log.i(TAG, prevStepInfo);
+                            Log.i(TAG, Integer.toString(counter));
+                        }
+                        titleText.setText(prevStepTitle);
+                        infoText.setText(prevStepInfo);
+                    }
+                    if (counter <= 0) {
+                        displayMaterials();
+                        counter = 0;
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
     }
 
@@ -79,5 +142,16 @@ public class NewLesson extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void displayMaterials() throws JSONException {
+        title = activityCategoryObject.getString("title");
+        titleText.setText(title);
+        infoArray = new JSONArray(activityCategoryObject.getString("materialsRequired"));
+        infoString = "List of Materials Needed:\n";
+        for (int i = 0; i < infoArray.length(); i++) {
+            infoString += i + 1 + ". " + infoArray.getString(i) + "\n";
+        }
+        infoText.setText(infoString);
     }
 }

@@ -17,7 +17,7 @@
         android:layout_weight="5"
         android:gravity="center"
         android:text="@string/selectCategoryText"
-        android:textSize="32dp" />
+        android:textSize="32sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"

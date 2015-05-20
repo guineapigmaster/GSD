@@ -24,5 +24,8 @@
     <string name="title_activity_suggest_new_lesson">SuggestNewLesson</string>
     <string name="title_activity_resume_activity_list">resumeActivityList</string>
     <string name="titleText" />
-    <string name="materialsText" />
+    <string name="infoText" />
+    <string name="nextStepText" />
+    <string name="saveStepText" />
+    <string name="prevStepText" />
 </resources>

@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/welcomeText"
-            android:textSize="30sp" />
+            android:textSize="32sp" />
     </LinearLayout>
 
     <LinearLayout

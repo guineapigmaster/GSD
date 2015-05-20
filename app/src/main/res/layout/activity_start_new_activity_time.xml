@@ -17,7 +17,7 @@
         android:layout_weight="5"
         android:gravity="center"
         android:text="@string/startNewProjectText"
-        android:textSize="32dp" />
+        android:textSize="32sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -81,12 +81,12 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="14sp"
                 android:gravity="left"
                 android:hint="..or enter your own time in minutes!"
-
                 android:inputType="number"
-                android:text="@string/customTimeText" />
+
+                android:text="@string/customTimeText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/goButton"
