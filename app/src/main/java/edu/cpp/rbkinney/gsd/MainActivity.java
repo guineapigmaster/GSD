@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.Parse;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -26,8 +24,8 @@ public class MainActivity extends ActionBarActivity {
     TextView welcomeText;
     @InjectView(R.id.startNewProjectButton)
     Button startNew;
-    @InjectView(R.id.resumeOldProjectButton)
-    Button resumeOld;
+//    @InjectView(R.id.resumeOldProjectButton)
+//    Button resumeOld;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +33,12 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "ONNUGT6zp06IvEBiuQ3EkEl2AbFkWI9ljE2tpHe4", "Ex2K1plHhrcbmejPGoiQpgAEvgRghPNXjn5rDRCe");
+//        Parse.enableLocalDatastore(this);
+//        Parse.initialize(this, "ONNUGT6zp06IvEBiuQ3EkEl2AbFkWI9ljE2tpHe4", "Ex2K1plHhrcbmejPGoiQpgAEvgRghPNXjn5rDRCe");
 
         welcomeText.setText("welcome");
         startNew.setText("start");
-        resumeOld.setText("resume");
+//        resumeOld.setText("resume");
 
         startNew.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -54,17 +52,17 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        resumeOld.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (DEBUG) {
-                    Log.i(TAG, "resumeOld clicked");
-                    toast = Toast.makeText(getApplicationContext(), "resumeOld clicked!", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                changeActivityTo(ResumeActivityListFragment.class);
-            }
-        });
+//        resumeOld.setOnClickListener(new Button.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (DEBUG) {
+//                    Log.i(TAG, "resumeOld clicked");
+//                    toast = Toast.makeText(getApplicationContext(), "resumeOld clicked!", Toast.LENGTH_SHORT);
+//                    toast.show();
+//                }
+//                changeActivityTo(ResumeActivityListFragment.class);
+//            }
+//        });
     }
 
 

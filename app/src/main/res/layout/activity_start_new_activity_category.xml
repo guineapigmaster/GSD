@@ -72,12 +72,12 @@
                 android:text="@string/randomButton" />
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/backToTimeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha" />
+        <!--<ImageButton-->
+        <!--android:id="@+id/backToTimeButton"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha" />-->
     </LinearLayout>
 
 </LinearLayout>

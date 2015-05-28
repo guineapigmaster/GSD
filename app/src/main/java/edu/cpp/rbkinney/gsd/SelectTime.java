@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,10 +19,22 @@ public class SelectTime extends ActionBarActivity {
     private static final boolean DEBUG = false;
     private static final java.lang.String TAG = "SelectTime";
     private static Toast toast;
-
     private static int customTimeMinutes;
+
     @InjectView(R.id.customTimeText)
     TextView customTimeText;
+    @InjectView(R.id.startNewProjectText)
+    TextView startNewProjectText;
+    @InjectView(R.id.topLeftButton)
+    Button topLeftButton;
+    @InjectView(R.id.topRightButton)
+    Button topRightButton;
+    @InjectView(R.id.bottomLeftButton)
+    Button bottomLeftButton;
+    @InjectView(R.id.bottomRightButton)
+    Button bottomRightButton;
+    @InjectView(R.id.goButton)
+    Button goButton;
 
     public static int getCustomTimeMinutes() {
         return customTimeMinutes;
@@ -34,15 +45,9 @@ public class SelectTime extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_new_activity_time);
         ButterKnife.inject(this);
-        TextView startNewProjectText = (TextView) findViewById(R.id.startNewProjectText);
-        Button topLeftButton = (Button) findViewById(R.id.topLeftButton);
-        Button topRightButton = (Button) findViewById(R.id.topRightButton);
-        Button bottomLeftButton = (Button) findViewById(R.id.bottomLeftButton);
-        Button bottomRightButton = (Button) findViewById(R.id.bottomRightButton);
 
-        Button goButton = (Button) findViewById(R.id.goButton);
 
-        ImageButton backToMainButton = (ImageButton) findViewById(R.id.backToMainButton);
+//        ImageButton backToMainButton = (ImageButton) findViewById(R.id.backToMainButton);
 
         startNewProjectText.setText("How much time do you want to spend?");
         topLeftButton.setText("5 minutes");
@@ -120,20 +125,20 @@ public class SelectTime extends ActionBarActivity {
                     }
                 }
                 customTimeMinutes = Integer.parseInt(customTimeText.getText().toString());
-                changeActivityTo(SelectCategory.class);
+                changeActivityTo(NewLesson.class);
             }
         });
-        backToMainButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (DEBUG) {
-                    Log.i(TAG, "backToMainButton clicked");
-                    toast = Toast.makeText(getApplicationContext(), "backToMainButton clicked!", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                changeActivityTo(MainActivity.class);
-            }
-        });
+//        backToMainButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (DEBUG) {
+//                    Log.i(TAG, "backToMainButton clicked");
+//                    toast = Toast.makeText(getApplicationContext(), "backToMainButton clicked!", Toast.LENGTH_SHORT);
+//                    toast.show();
+//                }
+//                changeActivityTo(MainActivity.class);
+//            }
+//        });
     }
 
     @Override
@@ -158,7 +163,6 @@ public class SelectTime extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     public void changeActivityTo(Class toOpen) {
         Intent intent = new Intent(this, toOpen);
         if (DEBUG) {
@@ -168,5 +172,4 @@ public class SelectTime extends ActionBarActivity {
         }
         startActivity(intent);
     }
-
 }

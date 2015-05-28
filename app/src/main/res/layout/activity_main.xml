@@ -31,12 +31,12 @@
             android:layout_gravity="center"
             android:text="@string/startNewProject" />'
 
-        <Button
-            android:id="@+id/resumeOldProjectButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/resumeProject" />'
+        <!--<Button-->
+        <!--android:id="@+id/resumeOldProjectButton"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:text="@string/resumeProject" />'-->
 
     </LinearLayout>
 

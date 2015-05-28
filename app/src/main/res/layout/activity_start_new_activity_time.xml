@@ -84,7 +84,6 @@
                 android:gravity="left"
                 android:hint="..or enter your own time in minutes!"
                 android:inputType="number"
-
                 android:text="@string/customTimeText"
                 android:textSize="14sp" />
 
@@ -95,12 +94,12 @@
                 android:text="@string/goButton" />
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/backToMainButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha" />
+        <!--<ImageButton-->
+        <!--android:id="@+id/backToMainButton"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha" />-->
     </LinearLayout>
 
 

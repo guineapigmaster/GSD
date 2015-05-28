@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,38 +23,42 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Random;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 
 public class SelectCategory extends ActionBarActivity {
     private static final boolean DEBUG = false;
     private static final String TAG = "SelectCategory";
     private static Toast toast;
-
     private static JSONObject activityCategoryObject;
     private static String jsonFileName;
-    private static int customTimeMinutes;
+    //    private static int customTimeMinutes;
+    @InjectView(R.id.cookingButton)
+    Button cookingButton;
+    @InjectView(R.id.electronicsButton)
+    Button electronicsButton;
+    @InjectView(R.id.diyButton)
+    Button diyButton;
+    @InjectView(R.id.randomButton)
+    Button randomButton;
+    @InjectView(R.id.selectCategoryText)
+    TextView selectCategoryText;
 
     public static JSONObject getActivityCategoryObject() {
         return activityCategoryObject;
-    }
-
-    public static String getJsonFileName() {
-        return jsonFileName;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_new_activity_category);
+        ButterKnife.inject(this);
+//        ImageButton backToTimeButton = (ImageButton) findViewById(R.id.backToTimeButton);
+//        customTimeMinutes = SelectTime.getCustomTimeMinutes();
 
-        TextView selectCategoryText = (TextView) findViewById(R.id.selectCategoryText);
-        Button cookingButton = (Button) findViewById(R.id.cookingButton);
-        Button electronicsButton = (Button) findViewById(R.id.electronicsButton);
-        Button diyButton = (Button) findViewById(R.id.diyButton);
-        Button randomButton = (Button) findViewById(R.id.randomButton);
-        ImageButton backToTimeButton = (ImageButton) findViewById(R.id.backToTimeButton);
-        customTimeMinutes = SelectTime.getCustomTimeMinutes();
         if (DEBUG) {
-            toast = Toast.makeText(getApplicationContext(), "custom time is: " + customTimeMinutes, Toast.LENGTH_SHORT);
+//            toast = Toast.makeText(getApplicationContext(), "custom time is: " + customTimeMinutes, Toast.LENGTH_SHORT);
             toast.show();
         }
 
@@ -64,6 +67,7 @@ public class SelectCategory extends ActionBarActivity {
         electronicsButton.setText("Electronics");
         diyButton.setText("DIY");
         randomButton.setText("Surprise Me");
+        final int numOfFiles = 2;
 
         cookingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +77,8 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "cookingButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                JSONprocesser("cooking1");
+                jsonFileName = "cooking" + (new Random().nextInt(numOfFiles) + 1);
+                JSONprocesser(jsonFileName);
                 changeActivityTo(NewLesson.class);
             }
         });
@@ -86,7 +91,9 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "electronicsButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                JSONprocesser("electronics1");
+                jsonFileName = "electronics" + (new Random().nextInt(numOfFiles) + 1);
+                Log.i(TAG, "jsonFileName is: " + jsonFileName);
+                JSONprocesser(jsonFileName);
                 changeActivityTo(NewLesson.class);
             }
         });
@@ -99,7 +106,8 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "diyButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                JSONprocesser("diy1");
+                jsonFileName = "diy" + new Random().nextInt(numOfFiles) + 1;
+                JSONprocesser(jsonFileName);
                 changeActivityTo(NewLesson.class);
             }
         });
@@ -112,23 +120,38 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "randomButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                String[] random = {"cooking1", "diy1", "electronics1"};
-                JSONprocesser(random[new Random().nextInt(random.length)]);
-                changeActivityTo(NewLesson.class);
+                String[] surpriseArray = {"cooking", "diy", "electronics"};
+                jsonFileName = surpriseArray[new Random().nextInt(surpriseArray.length)] + (new Random().nextInt(numOfFiles) + 1);
+                JSONprocesser(jsonFileName);
+                try {
+                    int compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
+                    do {
+                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
+                            changeActivityTo(NewLesson.class);
+                        } else {
+                            jsonFileName = surpriseArray[new Random().nextInt(surpriseArray.length)] + (new Random().nextInt(numOfFiles) + 1);
+                            JSONprocesser(jsonFileName);
+                            compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
+                        }
+                    } while (compareTime > SelectTime.getCustomTimeMinutes());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        backToTimeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (DEBUG) {
-                    Log.i(TAG, "backToTimeButton clicked");
-                    toast = Toast.makeText(getApplicationContext(), "backToTimeButton clicked!", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                changeActivityTo(SelectTime.class);
-            }
-        });
+//        backToTimeButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (DEBUG) {
+//                    Log.i(TAG, "backToTimeButton clicked");
+//                    toast = Toast.makeText(getApplicationContext(), "backToTimeButton clicked!", Toast.LENGTH_SHORT);
+//                    toast.show();
+//                }
+//                changeActivityTo(SelectTime.class);
+//            }
+//        });
     }
 
     @Override
@@ -163,10 +186,10 @@ public class SelectCategory extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void JSONprocesser(String activityCategory) {
+    public JSONObject JSONprocesser(String activityCategory) {
         InputStream is = this.getResources().openRawResource(getResources().getIdentifier(activityCategory, "raw", getPackageName()));
         //start JSON reader
-//        InputStream is = getResources().openRawResource(lol.getIntExtra());
+//      InputStream is = getResources().openRawResource(lol.getIntExtra());
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
         try {
@@ -185,14 +208,18 @@ public class SelectCategory extends ActionBarActivity {
             }
         }
         String jsonString = writer.toString();
-        Log.i(TAG, jsonString);
+        if (DEBUG) {
+            Log.i(TAG, jsonString);
+        }
         try {
             activityCategoryObject = new JSONObject(jsonString);
             String tester = activityCategoryObject.getString("category");
-            Log.i(TAG, "tester is " + tester);
+            Log.i(TAG, "tester is: " + tester + " and time is: " + activityCategoryObject.getString("time"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
         //end JSON reader
+        return activityCategoryObject;
     }
+
 }
