@@ -1,6 +1,8 @@
 package edu.cpp.rbkinney.gsd;
 
 import android.annotation.TargetApi;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -9,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -26,9 +29,11 @@ public class NewLesson extends ActionBarActivity {
     private static JSONArray infoArray;
     private static JSONObject stepListObject;
     private static JSONArray instructionArray;
+    private static String creditLink;
+    private static String imageFileName;
     private static int numOfSteps;
     private static int numOfMinutes;
-    private static int counter = 0;
+    private static int counter = -1;
 
     @InjectView(R.id.titleTextId)
     TextView titleText;
@@ -40,6 +45,8 @@ public class NewLesson extends ActionBarActivity {
 //    Button saveStepButton;
     @InjectView(R.id.prevStepButtonId)
     Button prevStepButton;
+    @InjectView(R.id.imageId)
+    ImageView imageHere;
 
     private String title;
     private String infoString;
@@ -49,6 +56,7 @@ public class NewLesson extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_new_lesson);
         ButterKnife.inject(this);
+        counter = -1;
 
         activityCategoryObject = SelectCategory.getActivityCategoryObject();
         numOfMinutes = SelectTime.getCustomTimeMinutes();
@@ -57,15 +65,16 @@ public class NewLesson extends ActionBarActivity {
             prevStepButton.setText("Previous Step");
 //            saveStepButton.setText("Save Progress");
             nextStepButton.setText("Next Step");
-
+            numOfSteps = Integer.parseInt(activityCategoryObject.getString("numberOfSteps"));
             instructionArray = new JSONArray(activityCategoryObject.getString("instructions"));
-            displayMaterials();
+            displayIntro();
+
             if (DEBUG) {
                 Log.i(TAG, infoString);
             }
 
 
-//            Log.d("damn", stepListObject.toString());
+//            Log.d("saveme", stepListObject.toString());
 //            Iterator daIterator = stepListObject.keys();
 //            stepListArray = new JSONArray();
 //            while (daIterator.hasNext()) {
@@ -73,7 +82,7 @@ public class NewLesson extends ActionBarActivity {
 //                stepListArray.put(stepListObject.get(text));
 //            }
 //            for (int i = 0; i < stepListArray.length(); i++) {
-//                Log.d("fuck", stepListArray.getString(i));
+//                Log.d("plzsaveme", stepListArray.getString(i));
 //            }
             stepListObject = (JSONObject) instructionArray.get(0);
         } catch (JSONException e) {
@@ -85,21 +94,36 @@ public class NewLesson extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    Log.i(TAG, "before counter++ is: " + counter);
 
+                    Log.i(TAG, "after counter++ is: " + counter);
+                    Log.i(TAG, "numOfSteps = " + numOfSteps);
                     if (counter < numOfSteps) {
                         counter++;
+                        Log.i(TAG, "ifstmt counter is: " + counter);
+                        if (counter == 0) {
+                            displayMaterials();
+                        } else {
 
-                        JSONObject stepObject = stepListObject.getJSONObject("step" + counter);
-                        String stepNumberText = "Step " + counter + ": ";
-                        String nextStepTitle = stepNumberText + stepObject.getString("title");
-                        String nextStepInfo = stepObject.getString("text");
-                        if (DEBUG) {
-                            Log.i(TAG, nextStepTitle.toString());
-                            Log.i(TAG, nextStepInfo);
-                            Log.i(TAG, Integer.toString(counter));
+                            JSONObject stepObject = stepListObject.getJSONObject("step" + counter);
+                            String stepNumberText = "Step " + counter + ": ";
+                            String nextStepTitle = stepNumberText + stepObject.getString("title");
+                            String nextStepInfo = stepObject.getString("text");
+                            if (DEBUG) {
+                                Log.i(TAG, nextStepTitle.toString());
+                                Log.i(TAG, nextStepInfo);
+                                Log.i(TAG, Integer.toString(counter));
+                            }
+
+                            if (counter == numOfSteps) {
+                                creditLink = activityCategoryObject.getString("link");
+                                nextStepInfo += "\n\n\nAll credits go to: " + creditLink;
+
+                            }
+                            titleText.setText(nextStepTitle);
+                            infoText.setText(nextStepInfo);
                         }
-                        titleText.setText(nextStepTitle);
-                        infoText.setText(nextStepInfo);
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -111,6 +135,7 @@ public class NewLesson extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    Log.i(TAG, "counter is: " + counter);
                     counter--;
                     if (counter > 0) {
                         JSONObject stepObject = stepListObject.getJSONObject("step" + counter);
@@ -125,9 +150,13 @@ public class NewLesson extends ActionBarActivity {
                         titleText.setText(prevStepTitle);
                         infoText.setText(prevStepInfo);
                     }
-                    if (counter <= 0) {
+                    if (counter == 0) {
                         displayMaterials();
-                        counter = 0;
+                        counter--;
+                    }
+                    if (counter <= -1) {
+                        displayIntro();
+                        counter = -1;
                     }
 
                 } catch (JSONException e) {
@@ -162,18 +191,32 @@ public class NewLesson extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void displayMaterials() throws JSONException {
+    public void displayIntro() throws JSONException {
         title = activityCategoryObject.getString("title");
-        numOfSteps = Integer.parseInt(activityCategoryObject.getString("numberOfSteps"));
-        numOfMinutes = Integer.parseInt(activityCategoryObject.getString("time"));
         titleText.setText(title);
-        infoArray = new JSONArray(activityCategoryObject.getString("materialsRequired"));
+        numOfMinutes = Integer.parseInt(activityCategoryObject.getString("time"));
+        infoText.setText("\nEstimated time to complete: " + numOfMinutes + " minutes");
+        Resources res = getResources();
+        String mDrawableName = activityCategoryObject.getString("image");
+        Log.i(TAG, mDrawableName);
+        int resID = res.getIdentifier(mDrawableName, "raw", getPackageName());
+        Drawable drawable = res.getDrawable(resID);
+        imageHere.setImageDrawable(drawable);
+//        imageHere.setImageResource(R.raw);
+    }
+
+    public void displayMaterials() throws JSONException {
+//        title = activityCategoryObject.getString("title");
 
         infoString = "List of Materials Needed:\n";
+        titleText.setText(infoString);
+        infoArray = new JSONArray(activityCategoryObject.getString("materialsRequired"));
+        imageHere.setImageDrawable(null);
+
         for (int i = 0; i < infoArray.length(); i++) {
             infoString += i + 1 + ". " + infoArray.getString(i) + "\n";
         }
-        infoString += "\nEstimated time to complete: " + numOfMinutes + " minutes";
+//        infoString += "\nEstimated time to complete: " + numOfMinutes + " minutes";
         infoText.setText(infoString);
     }
 }

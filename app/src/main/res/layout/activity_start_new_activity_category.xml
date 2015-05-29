@@ -36,16 +36,20 @@
 
             <Button
                 android:id="@+id/cookingButton"
-                android:layout_width="0dp"
+                android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/roundbutton"
+                android:drawableTop="@drawable/cookingicon"
                 android:text="@string/cookingButton" />
 
             <Button
                 android:id="@+id/electronicsButton"
-                android:layout_width="0dp"
+                android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/roundbutton"
+                android:drawableTop="@drawable/electronicsicon"
                 android:text="@string/electronicsButton" />
         </LinearLayout>
 
@@ -59,19 +63,24 @@
 
             <Button
                 android:id="@+id/diyButton"
-                android:layout_width="0dp"
+                android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/roundbutton"
+                android:drawableTop="@drawable/diyicon"
                 android:text="@string/diyButton" />
 
             <Button
                 android:id="@+id/randomButton"
-                android:layout_width="0dp"
+                android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/roundbutton"
+                android:drawableTop="@drawable/surprisemeicon"
                 android:text="@string/randomButton" />
-        </LinearLayout>
 
+        </LinearLayout>
+        <!--@string/testerButton-->
         <!--<ImageButton-->
         <!--android:id="@+id/backToTimeButton"-->
         <!--android:layout_width="wrap_content"-->

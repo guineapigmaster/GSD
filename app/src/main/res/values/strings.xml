@@ -12,6 +12,7 @@
     <string name="topRightButton" />
     <string name="bottomLeftButton" />
     <string name="bottomRightButton" />
+    <string name="testerButton" />
     <string name="startNewProjectText" />
     <string name="customTimeText" />
     <string name="title_activity_start_new_activity_category">StartNewActivityCategory</string>

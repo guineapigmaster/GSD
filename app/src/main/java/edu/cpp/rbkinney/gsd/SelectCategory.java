@@ -66,8 +66,9 @@ public class SelectCategory extends ActionBarActivity {
         cookingButton.setText("Cooking");
         electronicsButton.setText("Electronics");
         diyButton.setText("DIY");
-        randomButton.setText("Surprise Me");
-        final int numOfFiles = 2;
+        randomButton.setText("Random");
+
+        final int numOfFiles = 1;
 
         cookingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +107,7 @@ public class SelectCategory extends ActionBarActivity {
                     toast = Toast.makeText(getApplicationContext(), "diyButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                jsonFileName = "diy" + new Random().nextInt(numOfFiles) + 1;
+                jsonFileName = "diy" + (new Random().nextInt(numOfFiles) + 1);
                 JSONprocesser(jsonFileName);
                 changeActivityTo(NewLesson.class);
             }

@@ -1,72 +1,38 @@
 ﻿{
   "category": "diy",
-  "title": "How to DIY",
+  "title": "How to Make Your Own Lip Balm",
   "materialsRequired": [
-    "Soldering iron",
-    "Solder",
-    "Flux",
-    "Soldering iron tips",
-    "Soldering iron holder and sponge",
-    "Wire cutters",
-    "Wire stripper",
-    "Needle nose pliers",
-    "Helping hand",
-    "Fan",
-    "Safety Goggles",
-    "Materials you want to join together"
+    "1 Tablespoon Coconut Oil",
+    "2 Tablespoons Sunflower Oil",
+    "1 Tablespoon & 1 teaspoon Beeswax or Carnauba Wax",
+    "10 drops scented essential oil of your choice"
   ],
-  "time": "60",
-  "numberOfSteps": "12",
+  "time": "30",
+  "numberOfSteps": "5",
   "instructions": [
     {
       "step1": {
-        "title": "Prepare a work space",
-        "text": "Lay down a mat or piece of cardboard that will catch any solder that you drip."
+        "title": "Prepare Ingredients",
+        "text": "Chop or grate your wax quite finely, and scoop it into your smaller pot (or pyrex measuring cup) along with your butters and oils."
       },
       "step2": {
-        "title": "Warm your soldering iron",
-        "text": "If your soldering iron is electric, you’ll need to allow it to warm up on its stand. If your soldering iron runs on butane, as Master Appliance soldering irons do, fill it with gas holding the unit firmly with the refill nozzle pointed upwards and press down. Gas will overflow from nozzle when tank is full."
+        "title": "Boil Water",
+        "text": "Heat about 2″ of water in the larger pot/double boiler, and once it’s warm, place the wax-filled pot inside it, ensuring that the water doesn’t spill into the smaller pot at all. Keep the water on medium-high heat until the wax and oil mixture has melted, whisking or stirring it gently to dissolve it evenly."
       },
       "step3": {
-        "title": "Secure the items you are soldering",
-        "text": "It helps to have an extra hand while you are soldering. We suggest using a vise or frame to secure your work."
+        "title": "Add Essential Oils",
+        "text": "Once it’s all melted, remove it from the heat, set it aside, and add your essential oils. (Note: The scent of them will dissipate a little bit, so feel free to add a few more drops than listed in the recipe if you feel it’s necessary. If you find that the mixture is starting to firm up, put it back over the heat to melt into liquid again.)"
       },
       "step4": {
         "title": "Clean your soldering iron",
         "text": "Because soldering irons get so hot, they oxidize and become dirty quickly. They key to reliable connections is clean components so make sure that your soldering tip and parts you are joining are clean. To accomplish this, pass the tip of your soldering iron on a wet sponge until it shines."
       },
       "step5": {
-        "title": "Apply flux",
-        "text": "In soldering it often becomes necessary to use materials called fluxes to help remove oxides and keep them absent while you solder. Flux needs to melt at a temperature lower than solder so that it can do its job prior to the soldering action. There are different methods to apply flux. The method you choose will be dependent on the items you are soldering."
-      },
-      "step6": {
-        "title": "Tin your soldering iron",
-        "text": "If you want to know everything there is to know about how to use a soldering iron, you’ll need to know how to tin. Tinning is the process of coating a soldering tip with a thin coat of solder. Melt a thin layer of solder on your iron’s tip. This aids in heat transfer between the tip and the component you are soldering, and also gives the solder a base from which to flow from.  This process may need to be repeated as you solder. You will only touch the tip of the soldering iron to the solder when you tin. Do not touch the tip of the iron to the solder while you are actually soldering."
-      },
-      "step7": {
-        "title": "Start soldering",
-        "text": "Hold the soldering iron like you would a pen in the hand you write with and the solder in the other."
-      },
-      "step8": {
-        "title": "Place the tip of the soldering iron tip",
-        "text": "The tip needs to touch both the wire lead and the surface so they achieve the same temperature."
-      },
-      "step9": {
-        "title": "Feed solder onto the joint after you have heated the area for two to three seconds",
-        "text": "Touch the solder to the side of the connection opposite the soldering iron. Then, let the solder flow only until the connection is covered."
-      },
-      "step10": {
-        "title": "Remove the solder first. Then, remove the iron",
-        "text": "Make sure the joint remains stationary while it cools."
-      },
-      "step11": {
-        "title": "Evaluate",
-        "text": "A smooth, shiny and volcano shaped joint is what you are looking for. If this isn’t what you see, you’ll need to reheat and feed in more solder."
-      },
-      "step12": {
-        "title": "Remove leftover flux with a commercial flux cleaner.",
-        "text": "done!"
+        "title": "Transfer and Finish",
+        "text": "Use your dropper to transfer the liquid balm into your empty containers, and let them cool overnight (or about 10 hours) before closing them. Add cute labels as desired, and moisten up everyone’s lips to your heart’s content!"
       }
     }
-  ]
+  ],
+  "link": "http://inhabitat.com/diy-holiday-gift-how-to-make-handmade-lip-balms/",
+  "image": "lipbalm"
 }

@@ -125,7 +125,7 @@ public class SelectTime extends ActionBarActivity {
                     }
                 }
                 customTimeMinutes = Integer.parseInt(customTimeText.getText().toString());
-                changeActivityTo(NewLesson.class);
+                changeActivityTo(SelectCategory.class);
             }
         });
 //        backToMainButton.setOnClickListener(new View.OnClickListener() {

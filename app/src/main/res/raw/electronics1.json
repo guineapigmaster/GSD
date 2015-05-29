@@ -1,6 +1,6 @@
 ﻿{
   "category": "electronics",
-  "title": "How to Solder",
+  "title": "Basics of Soldering",
   "materialsRequired": [
     "Soldering iron",
     "Solder",
@@ -68,5 +68,7 @@
         "text": "done!"
       }
     }
-  ]
+  ],
+  "link": "https://www.masterappliance.com/blog/how-tos/12-06-27/how-use-soldering-iron-%E2%80%93-step-step-guide",
+  "image": "soldering"
 }

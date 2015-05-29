@@ -24,11 +24,20 @@
             android:textAlignment="center"
             android:textSize="32sp" />
 
+        <ImageView
+            android:id="@+id/imageId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart" />
+
         <TextView
             android:id="@+id/infoTextId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight=".9"
+            android:layout_weight=".5"
             android:text="@string/infoText"
             android:textSize="16sp" />
     </LinearLayout>

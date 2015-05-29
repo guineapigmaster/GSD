@@ -3,9 +3,11 @@
 buildscript {
     repositories {
         jcenter()
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.1.0'
+
 //        compile 'com.parse.bolts:bolts-android:1.+'
 //        compile fileTree(dir: 'libs', include: 'Parse-*.jar')
         // NOTE: Do not place your application dependencies here; they belong
