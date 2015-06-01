@@ -1,0 +1,42 @@
+﻿{
+  "category": "cooking",
+  "title": "Roasted Tomatoes",
+  "materialsRequired": [
+    "6 plum tomatoes, halved lengthwise",
+    "Unsalted butter, for greasing baking dish",
+    "Olive oil, for drizzling",
+    "Honey, for drizzling",
+    "1 teaspoon sweet paprika",
+    "1 cup panko (Japanese) bread crumbs",
+    "Kosher salt and freshly ground black pepper",
+    "2 tablespoons finely chopped fresh flat-leaf parsley, to garnish"
+  ],
+  "time": "25",
+  "numberOfSteps": "5",
+  "instructions": [
+    {
+      "step1": {
+        "title": "Preheat Oven",
+        "text": "Preheat the oven to 350 degrees F."
+      },
+      "step2": {
+        "title": "Prepare Tomatoes",
+        "text": "Put the tomato halves in a lightly buttered baking dish, cut-side up, drizzle with olive oil , honey, and sprinkle with panko bread crumbs and paprika."
+      },
+      "step3": {
+        "title": "Roast Tomatoes",
+        "text": "Season the tomatoes with salt and pepper and roast for 20 minutes."
+      },
+      "step4": {
+        "title": "Remove Tomatoes",
+        "text": "Remove the tomatoes from the oven and sprinkle with parsley. Drizzle with olive oil."
+      },
+      "step5": {
+        "title": "Eat the Tomatoes",
+        "text": "EZ"
+      }
+    }
+  ],
+  "link": "http://www.cookingchanneltv.com/recipes/bobby-flay/roasted-tomatoes-with-bread-crumbs.html",
+  "image": "roastedtomatoes"
+}

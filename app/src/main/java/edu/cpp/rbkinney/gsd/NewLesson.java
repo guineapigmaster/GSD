@@ -1,11 +1,11 @@
 package edu.cpp.rbkinney.gsd;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class NewLesson extends Activity {
+public class NewLesson extends ActionBarActivity {
     private static final boolean DEBUG = false;
     private static final String TAG = "SuggestNewLesson";
     private static JSONObject activityCategoryObject;
@@ -32,7 +32,6 @@ public class NewLesson extends Activity {
     private static JSONObject stepListObject;
     private static JSONArray instructionArray;
     private static String creditLink;
-    private static String imageFileName;
     private static int numOfSteps;
     private static int numOfMinutes;
     private static int counter = -1;
@@ -43,8 +42,6 @@ public class NewLesson extends Activity {
     TextView infoText;
     @InjectView(R.id.nextStepButtonId)
     Button nextStepButton;
-    //    @InjectView(R.id.saveStepButtonId)
-//    Button saveStepButton;
     @InjectView(R.id.prevStepButtonId)
     Button prevStepButton;
     @InjectView(R.id.imageId)
@@ -63,7 +60,11 @@ public class NewLesson extends Activity {
         activityCategoryObject = SelectCategory.getActivityCategoryObject();
         numOfMinutes = SelectTime.getCustomTimeMinutes();
         infoText.setMovementMethod(new ScrollingMovementMethod());
-
+        try {
+            setTitle(activityCategoryObject.getString("title"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         try {
             prevStepButton.setText("Previous Step");
@@ -104,12 +105,21 @@ public class NewLesson extends Activity {
 
                             if (counter == numOfSteps) {
                                 creditLink = activityCategoryObject.getString("link");
-                                nextStepInfo += "\n\n\nAll credits go to: " + creditLink;
+                                nextStepInfo += "\n\nAll credits go to: " + creditLink;
 
                             }
                             titleText.setText(nextStepTitle);
                             infoText.setText(nextStepInfo);
-                            imageHere.setImageDrawable(null);
+                            if (SelectCategory.getActivityCategoryObject().getString("category").equals("electronics")) {
+                                Log.i("YOO", "im here");
+                                Resources res = getResources();
+                                String mDrawableName = activityCategoryObject.getString("step1image");
+                                Log.i(TAG, mDrawableName);
+                                int resID = res.getIdentifier(mDrawableName, "raw", getPackageName());
+                                Drawable drawable = res.getDrawable(resID);
+                                imageHere.setImageDrawable(drawable);
+                            } else
+                                imageHere.setImageDrawable(null);
                             freeUpImageSpace();
                         }
                     }

@@ -39,7 +39,6 @@
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/roundbutton"
                 android:drawableTop="@drawable/cookingicon"
                 android:text="@string/cookingButton" />
 
@@ -48,7 +47,6 @@
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/roundbutton"
                 android:drawableTop="@drawable/electronicsicon"
                 android:text="@string/electronicsButton" />
         </LinearLayout>
@@ -66,7 +64,6 @@
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/roundbutton"
                 android:drawableTop="@drawable/diyicon"
                 android:text="@string/diyButton" />
 
@@ -75,7 +72,6 @@
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/roundbutton"
                 android:drawableTop="@drawable/surprisemeicon"
                 android:text="@string/randomButton" />
 

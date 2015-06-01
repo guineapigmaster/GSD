@@ -1,8 +1,8 @@
 package edu.cpp.rbkinney.gsd;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
     private static final boolean DEBUG = false;
     private static final String TAG = "MainActivity";
     private static Toast toast;
@@ -36,8 +36,8 @@ public class MainActivity extends Activity {
 //        Parse.enableLocalDatastore(this);
 //        Parse.initialize(this, "ONNUGT6zp06IvEBiuQ3EkEl2AbFkWI9ljE2tpHe4", "Ex2K1plHhrcbmejPGoiQpgAEvgRghPNXjn5rDRCe");
 
-        welcomeText.setText("welcome");
-        startNew.setText("start");
+        welcomeText.setText("Get Stuff Done!");
+        startNew.setText("Start New Lesson");
 //        resumeOld.setText("resume");
 
         startNew.setOnClickListener(new Button.OnClickListener() {

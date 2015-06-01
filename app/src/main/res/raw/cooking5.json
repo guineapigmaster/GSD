@@ -1,0 +1,45 @@
+﻿{
+  "category": "cooking",
+  "title": "Baked Lemon Chicken",
+  "materialsRequired": [
+    "One 3 1/2- to 4-pound chicken, cut into 8 pieces, patted dry",
+    "Kosher salt and freshly ground black pepper",
+    "Flour for dredging",
+    "3 tablespoons extra-virgin olive oil",
+    "1 large onion, thinly sliced",
+    "Peel of half a lemon, white pith removed, cut into very thin strips",
+    "2 large garlic cloves, minced",
+    "1/2 teaspoons fresh rosemary leaves",
+    "1 tablespoon honey",
+    "1/4 cup freshly squeezed lemon juice",
+    "1 cup chicken broth, homemade or canned low-sodium"
+  ],
+  "time": "85",
+  "numberOfSteps": "5",
+  "instructions": [
+    {
+      "step1": {
+        "title": "Preheat Oven",
+        "text": "Preheat the oven to 400 degrees F."
+      },
+      "step2": {
+        "title": "Cook the Chicken",
+        "text": "Season the chicken with salt and pepper. Dredge in the flour and pat off the excess. Heat a large skillet over medium heat and add 2 tablespoons of the oil. Add the chicken skin-side down and saute until golden brown, about 5 minutes per side. Remove the chicken from the skillet and reserve."
+      },
+      "step3": {
+        "title": "Prepare Sauce",
+        "text": "Discard the oil and wipe the pan out with a paper towel. Add the remaining 1 tablespoon oil and heat over medium-low heat. Add the onion and cook until golden, about 10 to 12 minutes. Add the lemon zest, garlic, and rosemary, and cook for 2 minutes more. Add the honey, lemon juice, and broth, increase the heat and bring to a simmer."
+      },
+      "step4": {
+        "title": "Throw 'em in the Oven",
+        "text": "Use a slotted spoon to transfer the onions to a 9- by 13-inch ovenproof casserole, and spread them out. Arrange the chicken, skin-side up in a single layer on the onions. Pour the cooking liquid over the chicken. Season with salt and pepper to taste. Bake in the oven, basting every 15 minutes, until cooked through, about 45 minutes."
+      },
+      "step5": {
+        "title": "Eat the Chickenz",
+        "text": "EZ"
+      }
+    }
+  ],
+  "link": "http://www.cookingchanneltv.com/recipes/bobby-flay/roasted-tomatoes-with-bread-crumbs.html",
+  "image": "bakedlemonchicken"
+}

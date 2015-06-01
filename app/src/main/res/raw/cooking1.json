@@ -1,42 +1,36 @@
 ﻿{
   "category": "cooking",
-  "title": "How to Cook Roasted Tomatoes",
+  "title": "5 Minute Chocolate Cake",
   "materialsRequired": [
-    "6 plum tomatoes, halved lengthwise",
-    "Unsalted butter, for greasing baking dish",
-    "Olive oil, for drizzling",
-    "Honey, for drizzling",
-    "1 teaspoon sweet paprika",
-    "1 cup panko (Japanese) bread crumbs",
-    "Kosher salt and freshly ground black pepper",
-    "2 tablespoons finely chopped fresh flat-leaf parsley, to garnish"
+    "Mug",
+    "Microwave",
+    "4 tablespoons flour - make sure you measure it right - or the cake is a lie!",
+    "4 tablespoons sugar",
+    "1 tablespoon unsweetened cocoa",
+    "2 tablespoons whisked egg - 1 egg is too much, 1 egg white is too eggy, 1 yolk is too dense, but 2 tblsp is just right!",
+    "3 tablespoons milk",
+    "3 tablespoons oil",
+    "3 tablespoons chocolate chips",
+    "splash vanilla or other flavoring - try peppermint or cinnamon"
   ],
-  "time": "25",
-  "numberOfSteps": "5",
+  "time": "5",
+  "numberOfSteps": "3",
   "instructions": [
     {
       "step1": {
-        "title": "Preheat Oven",
-        "text": "Preheat the oven to 350 degrees F."
+        "title": "Mix Ingredients",
+        "text": "Add all of the dry ingredients to the mug and mix. Then add the egg and combine well. Stir in the milk and oil, and finish with chocolate chips and splash of vanilla. Stir well."
       },
       "step2": {
-        "title": "Prepare Tomato",
-        "text": "Put the tomato halves in a lightly buttered baking dish, cut-side up, drizzle with olive oil , honey, and sprinkle with panko bread crumbs and paprika."
+        "title": "Nuke it",
+        "text": "Microwave for 3~4 minutes. It will start to crown over the top of the mug. It will collapse once the heat stops."
       },
       "step3": {
-        "title": "Roast Tomoates",
-        "text": "Season the tomatoes with salt and pepper and roast for 20 minutes."
-      },
-      "step4": {
-        "title": "Remove Tomatoes",
-        "text": "Remove the tomatoes from the oven and sprinkle with parsley. Drizzle with olive oil."
-      },
-      "step5": {
-        "title": "Eat the Tomatoes",
-        "text": "EZ"
+        "title": "Eat it",
+        "text": "Try it out, experiment with different amounts of ingredients and cooking time. EZ"
       }
     }
   ],
-  "link": "http://www.cookingchanneltv.com/recipes/bobby-flay/roasted-tomatoes-with-bread-crumbs.html",
-  "image": "roastedtomatoes"
+  "link": "http://www.instructables.com/id/5-minute-Chocolate-Cake/",
+  "image": "ezchocolatecake"
 }

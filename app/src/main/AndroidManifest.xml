@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.cpp.rbkinney.gsd">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
 
     <application
         android:allowBackup="true"
@@ -12,21 +12,25 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:icon="@drawable/gsdlogo"
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".SelectTime"
+            android:icon="@drawable/gsdlogo"
             android:label="@string/title_activity_start_new_activity_time" />
         <activity
             android:name=".SelectCategory"
+            android:icon="@drawable/gsdlogo"
             android:label="@string/title_activity_start_new_activity_category" />
+
         <activity
             android:name=".NewLesson"
+            android:icon="@drawable/gsdlogo"
             android:label="@string/title_activity_suggest_new_lesson" />
     </application>
 

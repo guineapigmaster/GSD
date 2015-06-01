@@ -1,8 +1,8 @@
 package edu.cpp.rbkinney.gsd;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +27,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class SelectCategory extends Activity {
+public class SelectCategory extends ActionBarActivity {
     private static final boolean DEBUG = false;
     private static final String TAG = "SelectCategory";
     private static Toast toast;
@@ -53,6 +53,7 @@ public class SelectCategory extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_new_activity_category);
+        setTitle("Whatchu gon' learn");
         ButterKnife.inject(this);
 //        ImageButton backToTimeButton = (ImageButton) findViewById(R.id.backToTimeButton);
 //        customTimeMinutes = SelectTime.getCustomTimeMinutes();
@@ -68,8 +69,7 @@ public class SelectCategory extends Activity {
         diyButton.setText("DIY");
         randomButton.setText("Random");
 
-        final int numOfFiles = 2;
-
+        final int numOfFiles = 4;
         cookingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,19 +78,27 @@ public class SelectCategory extends Activity {
                     toast = Toast.makeText(getApplicationContext(), "cookingButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                jsonFileName = "cooking" + (new Random().nextInt(numOfFiles) + 1);
+                jsonFileName = "cooking" + 1;
                 JSONprocesser(jsonFileName);
                 try {
                     int compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
-                    do {
-                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
-                            changeActivityTo(NewLesson.class);
-                        } else {
-                            jsonFileName = "cooking" + (new Random().nextInt(numOfFiles) + 1);
+                    if (compareTime == SelectTime.getCustomTimeMinutes())
+                        changeActivityTo(NewLesson.class);
+                    else {
+                        int counter = 2;
+                        do {
+//                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
+//                            changeActivityTo(NewLesson.class);
+//                        } else {
+                            jsonFileName = "cooking" + counter;
                             JSONprocesser(jsonFileName);
                             compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
-                        }
-                    } while (compareTime > SelectTime.getCustomTimeMinutes());
+                            Log.i(TAG, "get rekt " + compareTime);
+                            counter++;
+//                        }
+                        } while (compareTime > SelectTime.getCustomTimeMinutes());
+                        changeActivityTo(NewLesson.class);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -105,19 +113,27 @@ public class SelectCategory extends Activity {
                     toast = Toast.makeText(getApplicationContext(), "electronicsButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                jsonFileName = "electronics" + (new Random().nextInt(numOfFiles) + 1);
+                jsonFileName = "electronics" + 1;
                 JSONprocesser(jsonFileName);
                 try {
                     int compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
-                    do {
-                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
-                            changeActivityTo(NewLesson.class);
-                        } else {
-                            jsonFileName = "electronics" + (new Random().nextInt(numOfFiles) + 1);
+                    if (compareTime == SelectTime.getCustomTimeMinutes())
+                        changeActivityTo(NewLesson.class);
+                    else {
+                        int counter = 2;
+                        do {
+//                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
+//                            changeActivityTo(NewLesson.class);
+//                        } else {
+                            jsonFileName = "electronics" + counter;
                             JSONprocesser(jsonFileName);
                             compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
-                        }
-                    } while (compareTime > SelectTime.getCustomTimeMinutes());
+                            Log.i(TAG, "get rekt " + compareTime);
+                            counter++;
+//                        }
+                        } while (compareTime > SelectTime.getCustomTimeMinutes());
+                        changeActivityTo(NewLesson.class);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -132,19 +148,27 @@ public class SelectCategory extends Activity {
                     toast = Toast.makeText(getApplicationContext(), "diyButton clicked!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                jsonFileName = "diy" + (new Random().nextInt(numOfFiles) + 1);
+                jsonFileName = "diy" + 1;
                 JSONprocesser(jsonFileName);
                 try {
                     int compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
-                    do {
-                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
-                            changeActivityTo(NewLesson.class);
-                        } else {
-                            jsonFileName = "diy" + (new Random().nextInt(numOfFiles) + 1);
+                    if (compareTime == SelectTime.getCustomTimeMinutes())
+                        changeActivityTo(NewLesson.class);
+                    else {
+                        int counter = 2;
+                        do {
+//                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
+//                            changeActivityTo(NewLesson.class);
+//                        } else {
+                            jsonFileName = "diy" + counter;
                             JSONprocesser(jsonFileName);
                             compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
-                        }
-                    } while (compareTime > SelectTime.getCustomTimeMinutes());
+                            Log.i(TAG, "get rekt " + compareTime);
+                            counter++;
+//                        }
+                        } while (compareTime > SelectTime.getCustomTimeMinutes());
+                        changeActivityTo(NewLesson.class);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -171,9 +195,10 @@ public class SelectCategory extends Activity {
                             jsonFileName = surpriseArray[new Random().nextInt(surpriseArray.length)] + (new Random().nextInt(numOfFiles) + 1);
                             JSONprocesser(jsonFileName);
                             compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
+                            Log.i(TAG, "get rekt " + compareTime);
                         }
                     } while (compareTime > SelectTime.getCustomTimeMinutes());
-
+                    changeActivityTo(NewLesson.class);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -225,7 +250,7 @@ public class SelectCategory extends Activity {
         startActivity(intent);
     }
 
-    public JSONObject JSONprocesser(String activityCategory) {
+    public void JSONprocesser(String activityCategory) {
         InputStream is = this.getResources().openRawResource(getResources().getIdentifier(activityCategory, "raw", getPackageName()));
         //start JSON reader
 //      InputStream is = getResources().openRawResource(lol.getIntExtra());
@@ -256,9 +281,10 @@ public class SelectCategory extends Activity {
             Log.i(TAG, "tester is: " + tester + " and time is: " + activityCategoryObject.getString("time"));
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.w(TAG, "oh shit");
         }
         //end JSON reader
-        return activityCategoryObject;
+//        return activityCategoryObject;
     }
 
 }

@@ -1,44 +1,38 @@
 ﻿{
   "category": "diy",
-  "title": "Polka-Dot Lanterns",
+  "title": "Solitary Bee House",
   "materialsRequired": [
-    "Spray paint",
-    "Mason jars",
-    "Wire",
-    "Tea light candles",
-    "Circle stickers",
-    "Wire Cutter"
+    "Block/log of untreated, seasoned wood approximately 15cm (deep) x 10cm (wide) x 15cm (high)",
+    "Flat piece of wood for the roof approximately 20cm x 15cm x 1.5cm",
+    "Drill",
+    "Clamp",
+    "Safety glasses",
+    "Drill bits 6-10mm diameter",
+    "2 screws",
+    "String or wire"
   ],
-  "time": "5",
-  "numberOfSteps": "6",
+  "time": "15",
+  "numberOfSteps": "4",
   "instructions": [
     {
       "step1": {
-        "title": "Prepare Mason Jar",
-        "text": "Clean the mason jar, and put circle stickers on the outside of the jars in a polka dot pattern."
+        "title": "Clamp the Block of Wood Securely and Prepare Drill",
+        "text": "Drill holes in one side of the block. Make the holes as deep as possible but do not come through to the other side of the wood."
       },
       "step2": {
-        "title": "Prepare Surface for Spray Painting",
-        "text": "Set out a large sheet of paper in open area. Then, spray an even coat of paint on mason jar and let them dry."
+        "title": "Place Flat Piece on Wood Block",
+        "text": "Place the flat roof piece of wood onto the top surface of the block. Make sure it hangs over the entrances to the holes to protect them from the rain. Make sure the roof piece does not overhang the block at the back so it can sit flat against a wall."
       },
       "step3": {
-        "title": "Remove Stickers",
-        "text": "When the jars are dry to the touch, remove the stickers"
+        "title": "Attach Flat Piece",
+        "text": "Using two screws, firmly attach the roof piece to the top of the block of wood. Pre-drill the holes to prevent the wood from splitting. Screw two screws to the back of the block, leave them protruding out a bit so that you can attach wire/string to hang up your bee house."
       },
       "step4": {
-        "title": "Make Loops and Wrap Around Jars",
-        "text": "To create a hanger for the jar, cut a piece of wire of generous length for twisting the wire.One the opposite ends of the wire, twist little loops. Wrap this wire around the mouth of the jar and twist around to secure the wire on the jar."
-      },
-      "step5": {
-        "title": "Connect One Side and Make One Side Into a Hook",
-        "text": "Cut a long piece of wire to connect to the loops of the jar. Make this wire as long as you want your lantern to hang down. Secure one side of the wire to one of the loops, and turn the other end into a hook for easy placement and removal."
-      },
-      "step6": {
-        "title": "Hang Lantern on Tree",
-        "text": "Swing wire over a sturdy limb on a tree and secure the hook into the loop. Add candle and light it. If you are concerned about fire, use a battery operated tea light. EZ"
+        "title": "Decoratez",
+        "text": "Decorate the wood using bright colours to attract the bees. This bee house will last for many years and doesn't need to be moved in cold weather."
       }
     }
   ],
-  "link": "http://www.thesitsgirls.com/diy/mason-jar-craft/",
-  "image": "polkadotlantern"
+  "link": "https://www.growwilduk.com/content/make-your-own-solitary-bee-house",
+  "image": "beehouse"
 }

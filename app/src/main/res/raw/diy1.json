@@ -1,34 +1,44 @@
 ﻿{
   "category": "diy",
-  "title": "How to Make Your Own Lip Balm",
+  "title": "Polka-Dot Lanterns",
   "materialsRequired": [
-    "1 Tablespoon Coconut Oil",
-    "2 Tablespoons Sunflower Oil",
-    "1 Tablespoon & 1 teaspoon Beeswax or Carnauba Wax",
-    "10 drops scented essential oil of your choice"
+    "Spray paint",
+    "Mason jars",
+    "Wire",
+    "Tea light candles",
+    "Circle stickers",
+    "Wire Cutter"
   ],
-  "time": "30",
-  "numberOfSteps": "4",
+  "time": "5",
+  "numberOfSteps": "6",
   "instructions": [
     {
       "step1": {
-        "title": "Prepare Ingredients",
-        "text": "Chop or grate your wax quite finely, and scoop it into your smaller pot (or pyrex measuring cup) along with your butters and oils."
+        "title": "Prepare Mason Jar",
+        "text": "Clean the mason jar, and put circle stickers on the outside of the jars in a polka dot pattern."
       },
       "step2": {
-        "title": "Boil Water",
-        "text": "Heat about 2″ of water in the larger pot/double boiler, and once it’s warm, place the wax-filled pot inside it, ensuring that the water doesn’t spill into the smaller pot at all. Keep the water on medium-high heat until the wax and oil mixture has melted, whisking or stirring it gently to dissolve it evenly."
+        "title": "Prepare Surface for Spray Painting",
+        "text": "Set out a large sheet of paper in open area. Then, spray an even coat of paint on mason jar and let them dry."
       },
       "step3": {
-        "title": "Add Essential Oils",
-        "text": "Once it’s all melted, remove it from the heat, set it aside, and add your essential oils. (Note: The scent of them will dissipate a little bit, so feel free to add a few more drops than listed in the recipe if you feel it’s necessary. If you find that the mixture is starting to firm up, put it back over the heat to melt into liquid again.)"
+        "title": "Remove Stickers",
+        "text": "When the jars are dry to the touch, remove the stickers"
       },
       "step4": {
-        "title": "Transfer and Finish",
-        "text": "Use your dropper to transfer the liquid balm into your empty containers, and let them cool overnight (or about 10 hours) before closing them. Add cute labels as desired, and moisten up everyone’s lips to your heart’s content!"
+        "title": "Make Loops and Wrap Around Jars",
+        "text": "To create a hanger for the jar, cut a piece of wire of generous length for twisting the wire.One the opposite ends of the wire, twist little loops. Wrap this wire around the mouth of the jar and twist around to secure the wire on the jar."
+      },
+      "step5": {
+        "title": "Connect One Side and Make One Side Into a Hook",
+        "text": "Cut a long piece of wire to connect to the loops of the jar. Make this wire as long as you want your lantern to hang down. Secure one side of the wire to one of the loops, and turn the other end into a hook for easy placement and removal."
+      },
+      "step6": {
+        "title": "Hang Lantern on Tree",
+        "text": "Swing wire over a sturdy limb on a tree and secure the hook into the loop. Add candle and light it. If you are concerned about fire, use a battery operated tea light. EZ"
       }
     }
   ],
-  "link": "http://inhabitat.com/diy-holiday-gift-how-to-make-handmade-lip-balms/",
-  "image": "lipbalm"
+  "link": "http://www.thesitsgirls.com/diy/mason-jar-craft/",
+  "image": "polkadotlantern"
 }

@@ -1,0 +1,39 @@
+﻿{
+  "category": "diy",
+  "title": "Da Firebowl",
+  "materialsRequired": [
+    "Sakrete Quickset Concrete",
+    "a bunch of rocks (perhaps dug up from your yard)",
+    "a plastic bowl",
+    "a large canned good",
+    "chafing dish gel fuel pack",
+    "PAM cooking spray",
+    "Newspaper",
+    "plastic tub for mixing concrete",
+    "stick to stir concrete"
+  ],
+  "time": "60",
+  "numberOfSteps": "4",
+  "instructions": [
+    {
+      "step1": {
+        "title": "Prepare Mix",
+        "text": "Measure out your concrete. Fill plastic bowl/mold with dry mix. Dump mix in plastic mixing bin. Add water; stir with stick. Start with a puddle in the middle of dry mix. Not too soupy, not too chunky."
+      },
+      "step2": {
+        "title": "Add Mix to Mold",
+        "text": "Spray PAM all over your mold and canned good. Pour concrete into mold. Pour halfway, then place large canned good in the center and continued filling around the can. After about 6 minutes, rotate can, wiggle side to side to pop it out."
+      },
+      "step3": {
+        "title": "Take Concrete Out of Mold",
+        "text": "At the 17 minute mark, cover top of mold with stack of newspaper. Flip it over carefully; concrete form will slip right out."
+      },
+      "step4": {
+        "title": "Enjoy",
+        "text": "Place loose rocks along rim of concrete form. Drop fire gel pack in center hole; light with long match and enjoy."
+      }
+    }
+  ],
+  "link": "http://b3hd.blogspot.com/2011/10/project-1-rock-bowl-flame-31-diy.html",
+  "image": "firebowl"
+}

@@ -1,8 +1,8 @@
 package edu.cpp.rbkinney.gsd;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class SelectTime extends Activity {
+public class SelectTime extends ActionBarActivity {
     private static final boolean DEBUG = false;
     private static final java.lang.String TAG = "SelectTime";
     private static Toast toast;
@@ -43,6 +43,7 @@ public class SelectTime extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("How much time ya got");
         setContentView(R.layout.activity_start_new_activity_time);
         ButterKnife.inject(this);
 
