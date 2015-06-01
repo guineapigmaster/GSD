@@ -186,6 +186,7 @@ public class SelectCategory extends ActionBarActivity {
                 String[] surpriseArray = {"cooking", "diy", "electronics"};
                 jsonFileName = surpriseArray[new Random().nextInt(surpriseArray.length)] + (new Random().nextInt(numOfFiles) + 1);
                 JSONprocesser(jsonFileName);
+
                 try {
                     int compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
                     do {
@@ -198,7 +199,7 @@ public class SelectCategory extends ActionBarActivity {
                             Log.i(TAG, "get rekt " + compareTime);
                         }
                     } while (compareTime > SelectTime.getCustomTimeMinutes());
-                    changeActivityTo(NewLesson.class);
+//                    changeActivityTo(NewLesson.class);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
