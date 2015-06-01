@@ -90,7 +90,7 @@ public class SelectCategory extends ActionBarActivity {
 //                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
 //                            changeActivityTo(NewLesson.class);
 //                        } else {
-                            jsonFileName = "cooking" + counter;
+                            jsonFileName = "cooking" + (new Random().nextInt(numOfFiles) + 1);
                             JSONprocesser(jsonFileName);
                             compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
                             Log.i(TAG, "get rekt " + compareTime);
@@ -125,7 +125,7 @@ public class SelectCategory extends ActionBarActivity {
 //                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
 //                            changeActivityTo(NewLesson.class);
 //                        } else {
-                            jsonFileName = "electronics" + counter;
+                            jsonFileName = "electronics" + (new Random().nextInt(numOfFiles) + 1);
                             JSONprocesser(jsonFileName);
                             compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
                             Log.i(TAG, "get rekt " + compareTime);
@@ -160,7 +160,7 @@ public class SelectCategory extends ActionBarActivity {
 //                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
 //                            changeActivityTo(NewLesson.class);
 //                        } else {
-                            jsonFileName = "diy" + counter;
+                            jsonFileName = "diy" + (new Random().nextInt(numOfFiles) + 1);
                             JSONprocesser(jsonFileName);
                             compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
                             Log.i(TAG, "get rekt " + compareTime);
