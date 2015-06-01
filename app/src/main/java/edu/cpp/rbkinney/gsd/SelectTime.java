@@ -1,8 +1,8 @@
 package edu.cpp.rbkinney.gsd;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class SelectTime extends ActionBarActivity {
+public class SelectTime extends Activity {
     private static final boolean DEBUG = false;
     private static final java.lang.String TAG = "SelectTime";
     private static Toast toast;
@@ -117,14 +117,17 @@ public class SelectTime extends ActionBarActivity {
                         toast.show();
 
                     }
+                    customTimeMinutes = Integer.parseInt(customTimeText.getText().toString());
                 } else {
                     if (DEBUG) {
                         Log.i(TAG, "customTimeText is no more");
                         toast = Toast.makeText(getApplicationContext(), "no value of custom time", Toast.LENGTH_SHORT);
                         toast.show();
                     }
+                    toast = Toast.makeText(getApplicationContext(), "Please enter a time in minutes!", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
-                customTimeMinutes = Integer.parseInt(customTimeText.getText().toString());
+
                 changeActivityTo(SelectCategory.class);
             }
         });

@@ -1,0 +1,44 @@
+﻿{
+  "category": "diy",
+  "title": "Polka-Dot Lanterns",
+  "materialsRequired": [
+    "Spray paint",
+    "Mason jars",
+    "Wire",
+    "Tea light candles",
+    "Circle stickers",
+    "Wire Cutter"
+  ],
+  "time": "5",
+  "numberOfSteps": "6",
+  "instructions": [
+    {
+      "step1": {
+        "title": "Prepare Mason Jar",
+        "text": "Clean the mason jar, and put circle stickers on the outside of the jars in a polka dot pattern."
+      },
+      "step2": {
+        "title": "Prepare Surface for Spray Painting",
+        "text": "Set out a large sheet of paper in open area. Then, spray an even coat of paint on mason jar and let them dry."
+      },
+      "step3": {
+        "title": "Remove Stickers",
+        "text": "When the jars are dry to the touch, remove the stickers"
+      },
+      "step4": {
+        "title": "Make Loops and Wrap Around Jars",
+        "text": "To create a hanger for the jar, cut a piece of wire of generous length for twisting the wire.One the opposite ends of the wire, twist little loops. Wrap this wire around the mouth of the jar and twist around to secure the wire on the jar."
+      },
+      "step5": {
+        "title": "Connect One Side and Make One Side Into a Hook",
+        "text": "Cut a long piece of wire to connect to the loops of the jar. Make this wire as long as you want your lantern to hang down. Secure one side of the wire to one of the loops, and turn the other end into a hook for easy placement and removal."
+      },
+      "step6": {
+        "title": "Hang Lantern on Tree",
+        "text": "Swing wire over a sturdy limb on a tree and secure the hook into the loop. Add candle and light it. If you are concerned about fire, use a battery operated tea light. EZ"
+      }
+    }
+  ],
+  "link": "http://www.thesitsgirls.com/diy/mason-jar-craft/",
+  "image": "polkadotlantern"
+}

@@ -1,8 +1,8 @@
 package edu.cpp.rbkinney.gsd;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +27,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class SelectCategory extends ActionBarActivity {
+public class SelectCategory extends Activity {
     private static final boolean DEBUG = false;
     private static final String TAG = "SelectCategory";
     private static Toast toast;
@@ -68,7 +68,7 @@ public class SelectCategory extends ActionBarActivity {
         diyButton.setText("DIY");
         randomButton.setText("Random");
 
-        final int numOfFiles = 1;
+        final int numOfFiles = 2;
 
         cookingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +80,20 @@ public class SelectCategory extends ActionBarActivity {
                 }
                 jsonFileName = "cooking" + (new Random().nextInt(numOfFiles) + 1);
                 JSONprocesser(jsonFileName);
-                changeActivityTo(NewLesson.class);
+                try {
+                    int compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
+                    do {
+                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
+                            changeActivityTo(NewLesson.class);
+                        } else {
+                            jsonFileName = "cooking" + (new Random().nextInt(numOfFiles) + 1);
+                            JSONprocesser(jsonFileName);
+                            compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
+                        }
+                    } while (compareTime > SelectTime.getCustomTimeMinutes());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -93,9 +106,21 @@ public class SelectCategory extends ActionBarActivity {
                     toast.show();
                 }
                 jsonFileName = "electronics" + (new Random().nextInt(numOfFiles) + 1);
-                Log.i(TAG, "jsonFileName is: " + jsonFileName);
                 JSONprocesser(jsonFileName);
-                changeActivityTo(NewLesson.class);
+                try {
+                    int compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
+                    do {
+                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
+                            changeActivityTo(NewLesson.class);
+                        } else {
+                            jsonFileName = "electronics" + (new Random().nextInt(numOfFiles) + 1);
+                            JSONprocesser(jsonFileName);
+                            compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
+                        }
+                    } while (compareTime > SelectTime.getCustomTimeMinutes());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -109,7 +134,20 @@ public class SelectCategory extends ActionBarActivity {
                 }
                 jsonFileName = "diy" + (new Random().nextInt(numOfFiles) + 1);
                 JSONprocesser(jsonFileName);
-                changeActivityTo(NewLesson.class);
+                try {
+                    int compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
+                    do {
+                        if (compareTime <= SelectTime.getCustomTimeMinutes()) {
+                            changeActivityTo(NewLesson.class);
+                        } else {
+                            jsonFileName = "diy" + (new Random().nextInt(numOfFiles) + 1);
+                            JSONprocesser(jsonFileName);
+                            compareTime = Integer.parseInt((String) activityCategoryObject.get("time"));
+                        }
+                    } while (compareTime > SelectTime.getCustomTimeMinutes());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

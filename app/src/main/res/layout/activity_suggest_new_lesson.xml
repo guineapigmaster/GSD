@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/titleTextId"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".1"
             android:text="@string/titleText"
@@ -26,18 +26,20 @@
 
         <ImageView
             android:id="@+id/imageId"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight=".5"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight=".4"
             android:adjustViewBounds="true"
             android:scaleType="fitStart" />
 
         <TextView
             android:id="@+id/infoTextId"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
+            android:maxLines="15"
+            android:scrollbars="vertical"
             android:text="@string/infoText"
             android:textSize="16sp" />
     </LinearLayout>

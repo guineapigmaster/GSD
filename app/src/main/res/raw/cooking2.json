@@ -1,0 +1,36 @@
+﻿{
+  "category": "cooking",
+  "title": "5 Minute Chocolate Cake",
+  "materialsRequired": [
+    "Mug",
+    "Microwave",
+    "4 tablespoons flour - make sure you measure it right - or the cake is a lie!",
+    "4 tablespoons sugar",
+    "1 tablespoon unsweetened cocoa",
+    "2 tablespoons whisked egg - 1 egg is too much, 1 egg white is too eggy, 1 yolk is too dense, but 2 tblsp is just right!",
+    "3 tablespoons milk",
+    "3 tablespoons oil",
+    "3 tablespoons chocolate chips",
+    "splash vanilla or other flavoring - try peppermint or cinnamon"
+  ],
+  "time": "5",
+  "numberOfSteps": "3",
+  "instructions": [
+    {
+      "step1": {
+        "title": "Mix Ingredients",
+        "text": "Add all of the dry ingredients to the mug and mix. Then add the egg and combine well. Stir in the milk and oil, and finish with chocolate chips and splash of vanilla. Stir well."
+      },
+      "step2": {
+        "title": "Nuke it",
+        "text": "Microwave for 3~4 minutes. It will start to crown over the top of the mug. It will collapse once the heat stops."
+      },
+      "step3": {
+        "title": "Eat it",
+        "text": "Try it out, experiment with different amounts of ingredietns and cooking time. EZ"
+      }
+    }
+  ],
+  "link": "http://www.instructables.com/id/5-minute-Chocolate-Cake/",
+  "image": "ezchocolatecake"
+}

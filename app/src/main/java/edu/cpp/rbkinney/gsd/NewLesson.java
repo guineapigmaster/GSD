@@ -1,17 +1,19 @@
 package edu.cpp.rbkinney.gsd;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -22,7 +24,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class NewLesson extends ActionBarActivity {
+public class NewLesson extends Activity {
     private static final boolean DEBUG = false;
     private static final String TAG = "SuggestNewLesson";
     private static JSONObject activityCategoryObject;
@@ -60,6 +62,8 @@ public class NewLesson extends ActionBarActivity {
 
         activityCategoryObject = SelectCategory.getActivityCategoryObject();
         numOfMinutes = SelectTime.getCustomTimeMinutes();
+        infoText.setMovementMethod(new ScrollingMovementMethod());
+
 
         try {
             prevStepButton.setText("Previous Step");
@@ -72,18 +76,6 @@ public class NewLesson extends ActionBarActivity {
             if (DEBUG) {
                 Log.i(TAG, infoString);
             }
-
-
-//            Log.d("saveme", stepListObject.toString());
-//            Iterator daIterator = stepListObject.keys();
-//            stepListArray = new JSONArray();
-//            while (daIterator.hasNext()) {
-//                String text = (String) daIterator.next();
-//                stepListArray.put(stepListObject.get(text));
-//            }
-//            for (int i = 0; i < stepListArray.length(); i++) {
-//                Log.d("plzsaveme", stepListArray.getString(i));
-//            }
             stepListObject = (JSONObject) instructionArray.get(0);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -94,13 +86,8 @@ public class NewLesson extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Log.i(TAG, "before counter++ is: " + counter);
-
-                    Log.i(TAG, "after counter++ is: " + counter);
-                    Log.i(TAG, "numOfSteps = " + numOfSteps);
                     if (counter < numOfSteps) {
                         counter++;
-                        Log.i(TAG, "ifstmt counter is: " + counter);
                         if (counter == 0) {
                             displayMaterials();
                         } else {
@@ -122,9 +109,11 @@ public class NewLesson extends ActionBarActivity {
                             }
                             titleText.setText(nextStepTitle);
                             infoText.setText(nextStepInfo);
+                            imageHere.setImageDrawable(null);
+                            freeUpImageSpace();
                         }
-
                     }
+                    Log.i(TAG, "nextStep counter is: " + counter);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -135,30 +124,35 @@ public class NewLesson extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Log.i(TAG, "counter is: " + counter);
-                    counter--;
-                    if (counter > 0) {
-                        JSONObject stepObject = stepListObject.getJSONObject("step" + counter);
-                        String stepNumberText = "Step " + counter + ": ";
-                        String prevStepTitle = stepNumberText + stepObject.getString("title");
-                        String prevStepInfo = stepObject.getString("text");
-                        if (DEBUG) {
-                            Log.i(TAG, prevStepTitle.toString());
-                            Log.i(TAG, prevStepInfo);
-                            Log.i(TAG, Integer.toString(counter));
-                        }
-                        titleText.setText(prevStepTitle);
-                        infoText.setText(prevStepInfo);
-                    }
-                    if (counter == 0) {
-                        displayMaterials();
+                    if (counter > -1) {
                         counter--;
+                        Log.i(TAG, ">= -1, " + counter);
+                        if (counter == -1) {
+                            Log.i(TAG, "== -1, " + counter);
+                            displayIntro();
+                            counter = -1;
+                        }
+                        if (counter == 0) {
+                            Log.i(TAG, "== 0, " + counter);
+                            displayMaterials();
+                        } else {
+                            Log.i(TAG, "> 0, " + counter);
+                            JSONObject stepObject = stepListObject.getJSONObject("step" + counter);
+                            String stepNumberText = "Step " + counter + ": ";
+                            String prevStepTitle = stepNumberText + stepObject.getString("title");
+                            String prevStepInfo = stepObject.getString("text");
+                            if (DEBUG) {
+                                Log.i(TAG, prevStepTitle.toString());
+                                Log.i(TAG, prevStepInfo);
+                                Log.i(TAG, Integer.toString(counter));
+                            }
+                            titleText.setText(prevStepTitle);
+                            infoText.setText(prevStepInfo);
+                            imageHere.setImageDrawable(null);
+                            freeUpImageSpace();
+                        }
                     }
-                    if (counter <= -1) {
-                        displayIntro();
-                        counter = -1;
-                    }
-
+                    Log.i(TAG, "prevStep counter is: " + counter);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -202,7 +196,6 @@ public class NewLesson extends ActionBarActivity {
         int resID = res.getIdentifier(mDrawableName, "raw", getPackageName());
         Drawable drawable = res.getDrawable(resID);
         imageHere.setImageDrawable(drawable);
-//        imageHere.setImageResource(R.raw);
     }
 
     public void displayMaterials() throws JSONException {
@@ -218,5 +211,14 @@ public class NewLesson extends ActionBarActivity {
         }
 //        infoString += "\nEstimated time to complete: " + numOfMinutes + " minutes";
         infoText.setText(infoString);
+//        freeUpImageSpace();
+    }
+
+    public void freeUpImageSpace() {
+
+        if (imageHere == null) {
+            ((LinearLayout.LayoutParams) imageHere.getLayoutParams()).weight = 0.0f;
+            imageHere.refreshDrawableState();
+        }
     }
 }

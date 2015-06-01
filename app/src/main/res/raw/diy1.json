@@ -8,7 +8,7 @@
     "10 drops scented essential oil of your choice"
   ],
   "time": "30",
-  "numberOfSteps": "5",
+  "numberOfSteps": "4",
   "instructions": [
     {
       "step1": {
@@ -24,10 +24,6 @@
         "text": "Once it’s all melted, remove it from the heat, set it aside, and add your essential oils. (Note: The scent of them will dissipate a little bit, so feel free to add a few more drops than listed in the recipe if you feel it’s necessary. If you find that the mixture is starting to firm up, put it back over the heat to melt into liquid again.)"
       },
       "step4": {
-        "title": "Clean your soldering iron",
-        "text": "Because soldering irons get so hot, they oxidize and become dirty quickly. They key to reliable connections is clean components so make sure that your soldering tip and parts you are joining are clean. To accomplish this, pass the tip of your soldering iron on a wet sponge until it shines."
-      },
-      "step5": {
         "title": "Transfer and Finish",
         "text": "Use your dropper to transfer the liquid balm into your empty containers, and let them cool overnight (or about 10 hours) before closing them. Add cute labels as desired, and moisten up everyone’s lips to your heart’s content!"
       }
